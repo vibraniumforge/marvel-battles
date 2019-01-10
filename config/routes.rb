@@ -33,6 +33,8 @@ Rails.application.routes.draw do
   resources :movies
   resources :superpowers
 
+  # get '/auth/facebook/callback' => 'sessions#create'
+
   # resources :battles, only: [:index, :show, :create, :new]
   # resources :characters, only: [:index, :show, :create, :new]
   # resources :movies, only: [:index, :show, :create, :new]

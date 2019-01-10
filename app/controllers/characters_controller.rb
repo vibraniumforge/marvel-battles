@@ -5,17 +5,22 @@ class CharactersController < ApplicationController
   end
 
   def index
+    binding.pry
     @characters=Character.all
+    binding.pry
   end
 
   def new
     @character=Character.new
+    binding.pry
   end
 
   def create
     @character=Character.create(character_params)
+    binding.pry
     if @character.save
-      render :index
+      binding.pry
+      render :show
     else
       render :new
     end
@@ -32,6 +37,7 @@ class CharactersController < ApplicationController
       redirect_to @character
     else
       render :edit
+    end
   end
 
   def destroy
@@ -47,6 +53,7 @@ class CharactersController < ApplicationController
   end
 
   def finder
+    binding.pry
     @character=Character.find(params[:id])
   end
 
