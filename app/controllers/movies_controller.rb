@@ -13,7 +13,12 @@ class MoviesController < ApplicationController
   end
 
   def create
-    movie=Movie.create(post_params)
+    @movie=Movie.create(movie_params)
+    if @movie.save
+      render :index
+    else
+      render :new
+    end
   end
 
   def edit
@@ -22,18 +27,24 @@ class MoviesController < ApplicationController
 
   def update
     finder
+    @movie.update(movie_params)
+    if @movie.save
+      redirect_to @movie
+    else
+      render :edit
+    end
   end
 
   def destroy
     finder
     @movie.destroy
-    redirect_to '/'
+    redirect_to movies_path
   end
 
   private
 
-    def post_params
-      params.require(:movie).permit(:location)
+    def movie_params
+      params.require(:movie).permit(:location, :year)
     end
 
     def finder

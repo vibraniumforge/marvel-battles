@@ -13,7 +13,11 @@ class SuperpowersController < ApplicationController
   end
 
   def create
-    superpower=Superpower.create(post_params)
+    @superpower=Superpower.create(superpower_params)
+    if @superpower.save
+      render :index
+    else
+      render :new
   end
 
   def edit
@@ -22,17 +26,23 @@ class SuperpowersController < ApplicationController
 
   def update
     finder
+    @superpower.update(superpower_params)
+    if @superpower.save
+      redirect_to @superpower
+    else
+      render :edit
+    end
   end
 
   def destroy
     finder
     @superpower.destroy
-    redirect_to '/'
+    redirect_to superpowers_path
   end
 
   private
 
-    def post_params
+    def superpower_params
       params.require(:superpower).permit(:location)
     end
 

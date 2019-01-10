@@ -28,15 +28,15 @@ Rails.application.routes.draw do
   # get 'characters/index'
   # get 'characters/show'
 
-  # resources :battles
-  # resources :characters
-  # resources :movies
-  # resources :superpowers
+  resources :battles
+  resources :characters
+  resources :movies
+  resources :superpowers
 
-  resources :battles, only: [:index, :show, :create, :new]
-  resources :characters, only: [:index, :show, :create, :new]
-  resources :movies, only: [:index, :show, :create, :new]
-  resources :superpowers, only: [:index, :show, :create, :new]
+  # resources :battles, only: [:index, :show, :create, :new]
+  # resources :characters, only: [:index, :show, :create, :new]
+  # resources :movies, only: [:index, :show, :create, :new]
+  # resources :superpowers, only: [:index, :show, :create, :new]
 
   root "battles#index"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

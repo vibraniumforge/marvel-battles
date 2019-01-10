@@ -1,10 +1,18 @@
 <%= form_for @battle do |f|%>
-   <p>
+  <p>
     <%= f.label :name %>
     <%= f.text_field :name %>
-   </p>
-   <p>
+  </p>
+  <p>
      <%= f.label :location %>
+    <%= f.text_field :location %>
+  </p>
+  # <p>
+  #   <%= f.label :movie %>
+  #   <%= f.select_tag(:movie_id, options_for_select(...)) %>
+  # </p>
+  <p>
+    <%= f.label :location %>
     <%= f.text_field :location %>
   </p>
     <%= f.submit %>

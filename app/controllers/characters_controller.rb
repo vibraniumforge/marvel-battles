@@ -13,7 +13,12 @@ class CharactersController < ApplicationController
   end
 
   def create
-    character=Character.create(post_params)
+    @character=Character.create(character_params)
+    if @character.save
+      render :index
+    else
+      render :new
+    end
   end
 
   def edit
@@ -22,22 +27,27 @@ class CharactersController < ApplicationController
 
   def update
     finder
+    @character.update(character_params)
+    if @character.save
+      redirect_to @character
+    else
+      render :edit
   end
 
   def destroy
     finder
     @character.destroy
-    redirect to '/'
+    redirect_to characters_path
   end
 
   private
 
-  def post_params
+  def character_params
     params.require(:character).permit(:name, :callsign)
   end
 
   def finder
-    @battlcharactere=Character.find(params[:id])
+    @character=Character.find(params[:id])
   end
 
 end
