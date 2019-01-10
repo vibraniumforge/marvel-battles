@@ -1,2 +1,9 @@
 <h1>Characters#index</h1>
 <p>Find me in app/views/characters/index.html.erb</p>
+
+<h1>List of all Characters</h1>
+<% @characters.each do |character| %>
+    <div>
+      <h2><%= link_to character.name, character_path(character) %></h2>
+    </div>
+  <% end %>

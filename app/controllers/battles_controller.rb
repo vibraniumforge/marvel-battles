@@ -1,7 +1,8 @@
 class BattlesController < ApplicationController
 
   def show
-    finder
+    binding.pry
+    @battle=Battle.find(params[:id])
   end
 
   def index

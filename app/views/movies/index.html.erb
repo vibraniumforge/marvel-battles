@@ -1,2 +1,9 @@
 <h1>Movies#index</h1>
 <p>Find me in app/views/movies/index.html.erb</p>
+
+<h1>List of all Movies</h1>
+<% @movies.each do |movie| %>
+    <div>
+      <h2><%= link_to movie.name, movie_path(movie) %></h2>
+    </div>
+  <% end %>

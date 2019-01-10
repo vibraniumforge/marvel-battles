@@ -1,2 +1,9 @@
 <h1>Superpowers#index</h1>
 <p>Find me in app/views/superpowers/index.html.erb</p>
+
+<h1>List of all Superpowers</h1>
+<% @superpowers.each do |superpower| %>
+    <div>
+      <h2><%= link_to superpower.name, superpower_path(superpower) %></h2>
+    </div>
+  <% end %>

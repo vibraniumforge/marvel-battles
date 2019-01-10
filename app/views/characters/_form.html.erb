@@ -1,0 +1,12 @@
+<%= form_for @character do |f|%>
+    <p>
+     <%= f.label :name %>
+     <%= f.text_field :name %>
+    </p>
+    <p>
+      <%= f.label :callsign %>
+     <%= f.text_field :callsign %>
+   </p>
+     <%= f.submit %>
+ <% end %>
+     
