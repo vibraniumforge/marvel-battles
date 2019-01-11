@@ -1,11 +1,11 @@
 class SuperpowersController < ApplicationController
 
-  def show
-    finder
-  end
-
   def index
     @superpowers=Superpower.all
+  end
+
+  def show
+    find_superpower
   end
 
   def new
@@ -14,28 +14,30 @@ class SuperpowersController < ApplicationController
 
   def create
     @superpower=Superpower.create(superpower_params)
-    if @superpower.save
-      render :index
+    @superpower.save
+    if @superpower
+      redirect_to superpowers_path(@superpower)
     else
       render :new
+    end
   end
 
   def edit
-    finder
+    find_superpower
   end
 
   def update
-    finder
+    find_superpower
     @superpower.update(superpower_params)
     if @superpower.save
-      redirect_to @superpower
+      redirect_to superpower_path(@superpower)
     else
       render :edit
     end
   end
 
   def destroy
-    finder
+    find_superpower
     @superpower.destroy
     redirect_to superpowers_path
   end
@@ -43,10 +45,11 @@ class SuperpowersController < ApplicationController
   private
 
     def superpower_params
-      params.require(:superpower).permit(:location)
+      params.require(:superpower).permit(:name)
     end
 
-    def finder
+    def find_superpower
       @superpower=Superpower.find(params[:id])
     end
+
 end

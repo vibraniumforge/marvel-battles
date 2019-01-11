@@ -2,11 +2,10 @@ class BattlesController < ApplicationController
 
   def index
     @battles=Battle.all
-    binding.pry
   end
 
   def show
-    @battle=Battle.find(params[:id])
+    find_battle
   end
 
   def new
@@ -15,32 +14,30 @@ class BattlesController < ApplicationController
 
   def create
     @battle=Battle.create(battle_params)
-    if @battle.save
-      binding.pry
-      # redirect_to battles_path
-      render :index
+    @battle.save
+    if @battle
+      redirect_to battles_path(@battle)
     else
-      binding.pry
       render :new
     end
   end
 
   def edit
-    finder
+    find_battle
   end
 
   def update
-    finder
+    find_battle
     @battle.update(battle_params)
     if @battle.save
-      redirect_to @battle
+      redirect_to battle_path(@battle)
     else
       render :edit
     end
   end
 
   def destroy
-    finder
+    find_battle
     @battle.destroy
     redirect_to battles_path
   end
@@ -51,7 +48,7 @@ class BattlesController < ApplicationController
       params.require(:battle).permit(:name, :location)
     end
 
-    def finder
+    def find_battle
       @battle=Battle.find(params[:id])
     end
 

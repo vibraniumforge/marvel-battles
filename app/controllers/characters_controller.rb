@@ -1,60 +1,55 @@
 class CharactersController < ApplicationController
 
-  def show
-    finder
-  end
+def index
+  @characters=Character.all
+end
 
-  def index
-    binding.pry
-    @characters=Character.all
-    binding.pry
-  end
+def show
+  find_character
+end
 
-  def new
-    @character=Character.new
-    binding.pry
-  end
+def new
+  @haracter=Character.new
+end
 
-  def create
-    @character=Character.create(character_params)
-    binding.pry
-    if @character.save
-      binding.pry
-      render :show
-    else
-      render :new
-    end
+def create
+  @character=Character.create(character_params)
+  @character.save
+  if @character
+    redirect_to characters_path(@character)
+  else
+    render :new
   end
+end
 
-  def edit
-    finder
+def edit
+  find_character
+end
+
+def update
+  find_character
+  @character.update(character_params)
+  if @character.save
+    redirect_to character_path(@character)
+  else
+    render :edit
   end
+end
 
-  def update
-    finder
-    @character.update(character_params)
-    if @character.save
-      redirect_to @character
-    else
-      render :edit
-    end
-  end
+def destroy
+  find_character
+  @character.destroy
+  redirect_to characters_path
+end
 
-  def destroy
-    finder
-    @character.destroy
-    redirect_to characters_path
-  end
-
-  private
+private
 
   def character_params
     params.require(:character).permit(:name, :callsign)
   end
 
-  def finder
-    binding.pry
-    @character=Character.find(params[:id])
+  def find_character
+    @character=character.find(params[:id])
   end
 
 end
