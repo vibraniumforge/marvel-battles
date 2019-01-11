@@ -15,6 +15,7 @@ class BattlesController < ApplicationController
   def create
     @battle=Battle.create(battle_params)
     @battle.save
+    binding.pry
     if @battle
       redirect_to battles_path(@battle)
     else
@@ -45,7 +46,7 @@ class BattlesController < ApplicationController
   private
 
     def battle_params
-      params.require(:battle).permit(:name, :location)
+      params.require(:battle).permit(:name, :location, :movie, :character)
     end
 
     def find_battle

@@ -28,3 +28,42 @@ movies = Movie.create([
     {name: "Avengers: Infinity War", year: 2018},
     {name: "Ant-Man and the Wasp", year: 2018},
 ])
+
+characters=Character.create([
+    {name:"Steve Rogers", callsign:"Captain America"},
+    {name:"Tony Stark", callsign:"Iron Man"},
+    {name:"Bruce Banner", callsign:"The Hulk"},
+    {name:"Thor Odinson", callsign:"Thor"},
+    {name:"Natasha Romanoff", callsign:"Black Widow"},
+    {name:"Clint Barton", callsign:"Hawkeye"},
+    {name:"James Rhoades", callsign:"War Machine"},
+    {name:"James Barnes", callsign:"Winter Soldier"},
+    {name:"Sam Wilson", callsign:"Falcon"},
+    {name:"Pietro Maximoff", callsign:"Quicksilver"},
+    {name:"Wanda Maximoff", callsign:"Scarlet Witch"},
+    {name:"Scott Lang", callsign:"Ant-Man"},
+    {name:"Peter Parker", callsign:"Spider-Man"},
+    {name:"Steven Strange", callsign:"Dr. Strange"},
+    {name:"T'Challa", callsign:"Black Panther"},
+    {name:"Janet Van Dyne", callsign:"The Wasp"},
+    {name:"Obadiah Stane", callsign:"Iron Monger"},
+    {name:"Emil Blonsky", callsign:"Abomination"},
+    {name:"Ivan Vanko", callsign:"Whiplash"},
+    {name:"Loki Laufeyson", callsign:"Loki"},
+    {name:"Johann Schmidt", callsign:"Red Skull"},
+])
+
+
+superpowers=Superpower.create([
+    {name: "Super Soldier Serum"},
+    {name: "Power Suit"},
+    {name: "Rage Monster"},
+    {name: "God of Thunder"},
+    {name: "Assasin"},
+    {name: "Arrows"},
+    {name: "Shrinking Suit"},
+    {name: "Magic"},
+    {name: "Runs Fast"},
+    {name: "Vibranium Suit"},
+    {name: "Spider Powers"},
+])

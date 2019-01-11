@@ -3,6 +3,7 @@
 
 <h1>List of all Battles</h1>
 <ol class="list-unstyled">
+<% binding.pry %>
 <% @battles.each do |battle| %>
     <li>
       <%= link_to battle.name, battle_path(battle) %>
