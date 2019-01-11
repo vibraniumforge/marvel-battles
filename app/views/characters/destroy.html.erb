@@ -1,2 +1,7 @@
 <h1>Characters#destroy</h1>
 <p>Find me in app/views/characters/destroy.html.erb</p>
+
+<%= form_tag ({controller: 'characters', action: 'destroy', method: 'post'}) do %>
+    <input name=name>
+    <input type=submit value='login'>
+<% end %>

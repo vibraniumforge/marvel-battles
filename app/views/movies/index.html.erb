@@ -2,8 +2,11 @@
 <p>Find me in app/views/movies/index.html.erb</p>
 
 <h1>List of all Movies</h1>
+<ol class="list-unstyled">
 <% @movies.each do |movie| %>
-    <div>
-      <h2><%= link_to movie.name, movie_path(movie) %></h2>
-    </div>
-  <% end %>
+    <li>
+      <%= link_to movie.name, movie_path(movie) %>
+      <%= link_to movie.year, movie_path(movie) %>
+    </li>
+<% end %>
+</ol>

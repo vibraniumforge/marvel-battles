@@ -2,8 +2,13 @@
 <p>Find me in app/views/battles/index.html.erb</p>
 
 <h1>List of all Battles</h1>
+<ol class="list-unstyled">
 <% @battles.each do |battle| %>
-    <div>
-      <h2><%= link_to battle.name, battle_path(battle) %></h2>
-    </div>
+    <li>
+      <%= link_to battle.name, battle_path(battle) %>
+      <%= link_to battle.location, battle_path(battle) %>
+      <%= link_to battle.movie, battle_path(battle) %>
+      <%= link_to battle.character, battle_path(battle) %>
+    </li>
 <% end %>
+</ol>

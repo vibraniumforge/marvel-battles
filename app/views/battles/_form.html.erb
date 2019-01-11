@@ -12,9 +12,10 @@
     <%= collection_select(:movie, :name, Movie.all, :name, :name) %></p>
   </p>
   <p>
-    <%= f.label :location %>
-    <%= f.text_field :location %>
+  <%= f.label :character %>
+    <%= collection_select(:character, :name, Character.all, :name, :name) %></p>
   </p>
+  <br>
     <%= f.submit %>
 <% end %>
     
