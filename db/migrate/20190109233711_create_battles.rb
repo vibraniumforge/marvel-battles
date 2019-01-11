@@ -3,8 +3,8 @@ class CreateBattles < ActiveRecord::Migration[5.2]
     create_table :battles do |t|
       t.string :name
       t.string :location
-      t.integer :participants
-      t.integer :movie
+      t.integer :character_id
+      t.integer :movie_id
 
       t.timestamps
     end

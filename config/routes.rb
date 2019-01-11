@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :movies
   resources :superpowers
   get '/signin', to: "session#new"
-  post '/signin', to: "sessiom#create"
+  post '/signin', to: "session#create"
   delete '/session', to: "session#destroy"
 
   get '/auth/facebook/callback' => 'sessions#create'

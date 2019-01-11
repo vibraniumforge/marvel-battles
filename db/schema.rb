@@ -15,8 +15,8 @@ ActiveRecord::Schema.define(version: 2019_01_09_233819) do
   create_table "battles", force: :cascade do |t|
     t.string "name"
     t.string "location"
-    t.integer "participants"
-    t.integer "movie"
+    t.integer "character_id"
+    t.integer "movie_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
