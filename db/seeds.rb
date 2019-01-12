@@ -29,7 +29,7 @@ movies = Movie.create([
     {name: "Ant-Man and the Wasp", year: 2018},
 ])
 
-characters=Character.create([
+characters = Character.create([
     {name:"Steve Rogers", callsign:"Captain America"},
     {name:"Tony Stark", callsign:"Iron Man"},
     {name:"Bruce Banner", callsign:"The Hulk"},
@@ -54,7 +54,7 @@ characters=Character.create([
 ])
 
 
-superpowers=Superpower.create([
+superpowers = Superpower.create([
     {name: "Super Soldier Serum"},
     {name: "Power Suit"},
     {name: "Rage Monster"},

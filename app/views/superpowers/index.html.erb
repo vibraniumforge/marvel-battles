@@ -1,8 +1,8 @@
 <h1>Superpowers#index</h1>
 <p>Find me in app/views/superpowers/index.html.erb</p>
 
-<h1>List of all Super</h1>
-<ol class="list-unstyled">
+<h1>List of all Superpowers</h1>
+<ol style= "list-style-type: none">
 <% @superpowers.each do |superpower| %>
     <li>
       <%= link_to superpower.name, superpower_path(superpower) %>

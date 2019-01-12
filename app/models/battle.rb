@@ -1,7 +1,7 @@
-class Battle < ApplicationRecord
+class Battle < ActiveRecord::Base
 
     belongs_to :movie
-    belongs_to :battle
+    belongs_to :character
 
     validates :name, presence: true
     validates :location, presence: true

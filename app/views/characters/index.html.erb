@@ -2,7 +2,7 @@
 <p>Find me in app/views/characters/index.html.erb</p>
 
 <h1>List of all Characters</h1>
-<ol class="list-unstyled">
+<ol style= "list-style-type: none">
 <% @characters.each do |character| %>
     <li>
       <%= link_to character.name, character_path(character) %>

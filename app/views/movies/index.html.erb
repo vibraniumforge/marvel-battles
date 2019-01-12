@@ -2,7 +2,7 @@
 <p>Find me in app/views/movies/index.html.erb</p>
 
 <h1>List of all Movies</h1>
-<ol class="list-unstyled">
+<ol style= "list-style-type: none">
 <% @movies.each do |movie| %>
     <li>
       <%= link_to movie.name, movie_path(movie) %>

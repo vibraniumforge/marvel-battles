@@ -2,8 +2,7 @@
 <p>Find me in app/views/battles/index.html.erb</p>
 
 <h1>List of all Battles</h1>
-<ol class="list-unstyled">
-<% binding.pry %>
+<ol style= "list-style-type: none">
 <% @battles.each do |battle| %>
     <li>
       <%= link_to battle.name, battle_path(battle) %>

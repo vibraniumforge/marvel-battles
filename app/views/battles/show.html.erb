@@ -3,9 +3,9 @@
 
 <h1>Show a battle</h1>
 
-<p><%= @battle.name %></p>
-<p><%= @battle.location %></p>
-<p><%= @battle.character %></p>
-<p><%= @battle.movie %></p>
+<p>Name: <%= @battle.name %></p>
+<p>Location: <%= @battle.location %></p>
+<p>Characters: <%= @battle.character %></p>
+<p>Movie: <%= @battle.movie %></p>
 <br>
 <%= link_to "Edit Battle", edit_battle_path(@battle) %>
