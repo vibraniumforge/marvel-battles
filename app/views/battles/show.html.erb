@@ -5,8 +5,8 @@
 
 <p>Name: <%= @battle.name %></p>
 <p>Location: <%= @battle.location %></p>
-<p>Characters: <%= @battle.character %></p>
-<p>Movie: <%= @battle.movie %></p>
+<p>Characters: <%= @battle.character.name %></p>
+<p>Movie: <%= @battle.movie.name %></p>
 <br>
 <%= link_to "Edit Battle", edit_battle_path(@battle) %>
 <br>

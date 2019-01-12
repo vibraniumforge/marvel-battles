@@ -14,10 +14,8 @@ class SuperpowersController < ApplicationController
 
   def create
     
-    @superpower=Superpower.create(character_id: params[:character][:id], name:params[:superpower][:name])
-    binding.pry
+    @superpower=Superpower.create(name: params[:superpower][:name], character_id: params[:character][:id])
     @superpower.save
-    binding.pry
     if @superpower.save
       redirect_to superpowers_path(@superpower)
     else
@@ -48,7 +46,7 @@ class SuperpowersController < ApplicationController
   private
 
     def superpower_params
-      params.require(:superpower).permit(:name, :character)
+      params.require(:superpower).permit(:name, :character_id)
     end
 
     def find_superpower
