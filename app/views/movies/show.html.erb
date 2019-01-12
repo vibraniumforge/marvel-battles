@@ -3,5 +3,7 @@
 
 <h1>Show a movie</h1>
 
-<%= @movie.name %>
-<%= @movie.year %>
+<p>Name: <%= @movie.name %></p>
+<p>Year: <%= @movie.year %></p>
+<br>
+<%= link_to "Edit Movie", edit_movie_path(@movie) %>

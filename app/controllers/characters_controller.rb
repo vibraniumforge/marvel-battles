@@ -15,6 +15,7 @@ end
 def create
   @character=Character.create(character_params)
   @character.save
+  binding.pry
   if @character
     redirect_to characters_path(@character)
   else
@@ -49,7 +50,7 @@ private
   end
 
   def find_character
-    @character=character.find(params[:id])
+    @character=Character.find(params[:id])
   end
 
 end

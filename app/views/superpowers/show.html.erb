@@ -3,4 +3,7 @@
 
 <h1>Show a superpower</h1>
 
-<%= @superpower.name %>
+<p>Name: <%= @superpower.name %></p>
+<p>Character: <%= @superpower.character.name %></p>
+<br>
+<%= link_to "Edit Superpower", edit_superpower_path(@superpower) %>
