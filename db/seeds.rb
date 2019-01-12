@@ -11,7 +11,7 @@ movies = Movie.create([
     {name: "The Incredible Hulk", year: 2008},
     {name: "Iron Man 2", year: 2010},
     {name: "Thor", year: 2011},
-    {name: "Captain America: THei First Avenger", year: 2011},
+    {name: "Captain America: The First Avenger", year: 2011},
     {name: "The Avengers", year: 2012},
     {name: "Iron Man 3", year: 2013},
     {name: "Thor: The Dark World", year: 2013},

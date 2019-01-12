@@ -7,3 +7,5 @@
 <p>Callsign: <%= @character.callsign %></p>
 <br>
 <%= link_to "Edit Character", edit_character_path(@character) %>
+<br>
+<%= link_to "Delete", @character, method: :delete, data: { confirm: "Really?" } %>

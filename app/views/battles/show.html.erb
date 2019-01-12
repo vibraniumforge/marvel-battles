@@ -9,3 +9,5 @@
 <p>Movie: <%= @battle.movie %></p>
 <br>
 <%= link_to "Edit Battle", edit_battle_path(@battle) %>
+<br>
+<%= link_to "Delete", @battle, method: :delete, data: { confirm: "Really?" } %>

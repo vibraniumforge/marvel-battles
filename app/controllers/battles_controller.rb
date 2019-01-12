@@ -13,7 +13,8 @@ class BattlesController < ApplicationController
   end
 
   def create
-    @battle=Battle.create(battle_params)
+    @battle = Battle.create(battle_params)
+    binding.pry
     @battle.save
     binding.pry
     if @battle
@@ -46,7 +47,7 @@ class BattlesController < ApplicationController
   private
 
     def battle_params
-      params.require(:battle).permit(:name, :location, :movie, :character)
+      params.require(:battle).permit(:name, :location, :movie_id, :character_id)
     end
 
     def find_battle

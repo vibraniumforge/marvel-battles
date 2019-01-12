@@ -9,13 +9,13 @@
   </p>
   <p>
     <%= f.label :movie %>
-    <%= collection_select(:movie, :name, Movie.all, :name, :name) %></p>
+    <%= collection_select(:movie, :name, Movie.all, :id, :id) %></p>
   </p>
   <p>
   <%= f.label :character %>
-    <%= collection_select(:character, :name, Character.all, :name, :name) %></p>
+    <%= collection_select(:character, :name, Character.all, :id, :id) %></p>
   </p>
   <br>
     <%= f.submit %>
-<% end %>
     
+<% end %>
