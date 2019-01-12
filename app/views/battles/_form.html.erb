@@ -9,11 +9,11 @@
   </p>
   <p>
     <%= f.label :movie %>
-    <%= collection_select(:movie, :name, Movie.all, :id, :id) %></p>
+    <%= collection_select(:movie, :id, Movie.all, :id, :name) %></p>
   </p>
   <p>
   <%= f.label :character %>
-    <%= collection_select(:character, :name, Character.all, :id, :id) %></p>
+    <%= collection_select(:character, :id, Character.all, :id, :name) %></p>
   </p>
   <br>
     <%= f.submit %>

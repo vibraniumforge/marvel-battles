@@ -50,7 +50,7 @@ characters = Character.create([
     {name:"Emil Blonsky", callsign:"Abomination"},
     {name:"Ivan Vanko", callsign:"Whiplash"},
     {name:"Loki Laufeyson", callsign:"Loki"},
-    {name:"Johann Schmidt", callsign:"Red Skull"},
+    {name:"Johann Schmidt", callsign:"Red Skull"}
 ])
 
 
@@ -65,5 +65,5 @@ superpowers = Superpower.create([
     {name: "Magic"},
     {name: "Runs Fast"},
     {name: "Vibranium Suit"},
-    {name: "Spider Powers"},
+    {name: "Spider Powers"}
 ])

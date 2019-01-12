@@ -9,7 +9,7 @@ def show
 end
 
 def new
-  @haracter=Character.new
+  @character=Character.new
 end
 
 def create

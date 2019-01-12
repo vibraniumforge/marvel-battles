@@ -4,7 +4,7 @@
      <%= f.text_field :name %>
      <br>
      <%= f.label :character %>
-     <%= collection_select(:character, :name, Character.all, :name, :name) %></p>
+     <%= collection_select(:character, :id, Character.all, :id, :name) %></p>
     </p>
      <%= f.submit %>
  <% end %>
