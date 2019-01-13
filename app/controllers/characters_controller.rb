@@ -15,8 +15,7 @@ end
 def create
   @character=Character.create(character_params)
   @character.save
-  binding.pry
-  if @character
+  if @character.save
     redirect_to characters_path(@character)
   else
     render :new

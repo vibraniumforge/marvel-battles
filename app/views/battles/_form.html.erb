@@ -1,3 +1,18 @@
+<% if @battle.errors.any? %>
+  <div id="error_explanation">
+    <h2>
+      <%= pluralize(@battle.errors.count, "error") %>
+      prohibited this post from being saved:
+    </h2>
+    <ul>
+      <% @battle.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+
 <%= form_for @battle do |f|%>
   <p>
     <%= f.label :name %>

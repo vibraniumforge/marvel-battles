@@ -36,3 +36,6 @@ body {
     text-align: left;
   }
   
+  ol {
+    list-style-type: none;
+  }

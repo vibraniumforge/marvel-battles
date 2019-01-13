@@ -1,11 +1,28 @@
+<% if @superpower.errors.any? %>
+  <div id="error_explanation">
+    <h2>
+      <%= pluralize(@superpower.errors.count, "error") %>
+      prohibited this post from being saved:
+    </h2>
+    <ul>
+      <% @superpower.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
 <%= form_for @superpower do |f|%>
     <p>
      <%= f.label :name %>
      <%= f.text_field :name %>
-     <br>
+    </p>
+    <br>
+    <p>
      <%= f.label :character %>
      <%= collection_select(:character, :id, Character.all, :id, :name) %></p>
     </p>
+    <br>
      <%= f.submit %>
  <% end %>
      
