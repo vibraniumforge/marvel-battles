@@ -6,6 +6,8 @@
 <% @superpowers.each do |superpower| %>
     <li>
       <%= link_to superpower.name, superpower_path(superpower) %>
+      -
+      <%= link_to Character.find(superpower.character_id).name, superpower_path(superpower) %>
     </li>
 <% end %>
 </ol>

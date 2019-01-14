@@ -3,12 +3,11 @@
 
 <h1>List of all Movies</h1>
 <br>
-<%= %>
-<br>
 <ol>
 <% @movies.each do |movie| %>
     <li>
       <%= link_to movie.name, movie_path(movie) %>
+      -
       <%= link_to movie.year, movie_path(movie) %>
     </li>
 <% end %>

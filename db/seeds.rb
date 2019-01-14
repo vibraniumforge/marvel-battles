@@ -26,7 +26,7 @@ movies = Movie.create([
     {name: "Thor:Ragnarok", year: 2017},
     {name: "Black Panther", year: 2018},
     {name: "Avengers: Infinity War", year: 2018},
-    {name: "Ant-Man and the Wasp", year: 2018},
+    {name: "Ant-Man and the Wasp", year: 2018}
 ])
 
 characters = Character.create([
@@ -45,7 +45,7 @@ characters = Character.create([
     {name:"Peter Parker", callsign:"Spider-Man"},
     {name:"Steven Strange", callsign:"Dr. Strange"},
     {name:"T'Challa", callsign:"Black Panther"},
-    {name:"Janet Van Dyne", callsign:"The Wasp"},
+    {name:"Hope Van Dyne", callsign:"The Wasp"},
     {name:"Obadiah Stane", callsign:"Iron Monger"},
     {name:"Emil Blonsky", callsign:"Abomination"},
     {name:"Ivan Vanko", callsign:"Whiplash"},
@@ -53,17 +53,21 @@ characters = Character.create([
     {name:"Johann Schmidt", callsign:"Red Skull"}
 ])
 
-
 superpowers = Superpower.create([
-    {name: "Super Soldier Serum"},
-    {name: "Power Suit"},
-    {name: "Rage Monster"},
-    {name: "God of Thunder"},
-    {name: "Assasin"},
-    {name: "Arrows"},
-    {name: "Shrinking Suit"},
-    {name: "Magic"},
-    {name: "Runs Fast"},
-    {name: "Vibranium Suit"},
-    {name: "Spider Powers"}
+    {name: "Super Soldier Serum", character_id: Character.find_by(name: "Steve Rogers").id },
+    {name: "Power Suit", character_id: Character.find_by(name: "Tony Stark").id },
+    {name: "Rage Monster", character_id: Character.find_by(name: "Bruce Banner").id },
+    {name: "God of Thunder", character_id: Character.find_by(name: "Thor Odinson").id },
+    {name: "Assasin", character_id: Character.find_by(name: "Natasha Romanoff").id },
+    {name: "Arrows", character_id: Character.find_by(name: "Clint Barton").id },
+    {name: "Power Suit", character_id: Character.find_by(name: "James Rhoades").id },
+    {name: "Jetpack", character_id: Character.find_by(name: "Sam Wilson").id },
+    {name: "Vibranium Arm", character_id: Character.find_by(name: "James Barnes").id },
+    {name: "Magic", character_id: Character.find_by(name: "Wanda Maximoff").id },
+    {name: "Runs Fast", character_id: Character.find_by(name: "Pietro Maximoff").id },
+    {name: "Shrinking Suit", character_id: Character.find_by(name: "Scott Lang").id },
+    {name: "Magic", character_id: Character.find_by(name: "Steven Strange").id },
+    {name: "Spider Powers", character_id: Character.find_by(name: "Peter Parker").id },
+    {name: "Vibranium Suit", character_id: Character.find_by(name: "T'Challa").id },
+    {name: "Shrinking Suit with Wings", character_id: Character.find_by(name: "Hope Van Dyne").id },
 ])
