@@ -7,8 +7,8 @@ class Battle < ActiveRecord::Base
     validates :name, presence: true
     validates :location, presence: true
 
-    def is_cap
-        BattleCharacter.where(Character.name: 'Steve Rogers').
-    end
+    # def is_cap
+    #     BattleCharacter.where(Character.name: 'Steve Rogers').
+    # end
 
 end

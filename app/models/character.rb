@@ -6,6 +6,6 @@ class Character < ActiveRecord::Base
     accepts_nested_attributes_for :superpower
     
     validates :name, presence: true
-    validates :callsign, presence: true
-    
+    validates :alias, presence: true
+
 end

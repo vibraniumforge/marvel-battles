@@ -30,23 +30,23 @@ movies = Movie.create([
 ])
 
 characters = Character.create([
-    {name:"Steve Rogers", callsign:"Captain America"},
-    {name:"Tony Stark", callsign:"Iron Man"},
-    {name:"Bruce Banner", callsign:"The Hulk"},
-    {name:"Thor Odinson", callsign:"Thor"},
-    {name:"Natasha Romanoff", callsign:"Black Widow"},
-    {name:"Clint Barton", callsign:"Hawkeye"},
-    {name:"James Rhoades", callsign:"War Machine"},
-    {name:"James Barnes", callsign:"Winter Soldier"},
-    {name:"Sam Wilson", callsign:"Falcon"},
-    {name:"Pietro Maximoff", callsign:"Quicksilver"},
+    {name:"Steve Rogers", alias:"Captain America"},
+    {name:"Tony Stark", alias:"Iron Man"},
+    {name:"Bruce Banner", alias:"The Hulk"},
+    {name:"Thor Odinson", alias:"Thor"},
+    {name:"Natasha Romanoff", alias:"Black Widow"},
+    {name:"Clint Barton", alias:"Hawkeye"},
+    {name:"James Rhoades", alias:"War Machine"},
+    {name:"James Barnes", alias:"Winter Soldier"},
+    {name:"Sam Wilson", alias:"Falcon"},
+    {name:"Pietro Maximoff", alias:"Quicksilver"},
 
-    {name:"Wanda Maximoff", callsign:"Scarlet Witch"},
-    {name:"Scott Lang", callsign:"Ant-Man"},
-    {name:"Peter Parker", callsign:"Spider-Man"},
-    {name:"Steven Strange", callsign:"Dr. Strange"},
-    {name:"T'Challa", callsign:"Black Panther"},
-    {name:"Hope Van Dyne", callsign:"The Wasp"},
+    {name:"Wanda Maximoff", alias:"Scarlet Witch"},
+    {name:"Scott Lang", alias:"Ant-Man"},
+    {name:"Peter Parker", alias:"Spider-Man"},
+    {name:"Steven Strange", alias:"Dr. Strange"},
+    {name:"T'Challa", alias:"Black Panther"},
+    {name:"Hope Van Dyne", alias:"The Wasp"},
 ])
 
 superpowers = Superpower.create([

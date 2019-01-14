@@ -1,11 +1,12 @@
 class SuperpowersController < ApplicationController
 
+  before_action :find_superpower, only: [:update, :show, :edit, :delete]
+
   def index
     @superpowers=Superpower.all
   end
 
   def show
-    find_superpower
   end
 
   def new
@@ -13,11 +14,8 @@ class SuperpowersController < ApplicationController
   end
 
   def create
-    binding.pry
     @superpower=Superpower.create(superpower_params)
-    binding.pry
     @superpower.save
-    binding.pry
     if @superpower.save
       redirect_to superpowers_path(@superpower)
     else
@@ -26,11 +24,9 @@ class SuperpowersController < ApplicationController
   end
 
   def edit
-    find_superpower
   end
 
   def update
-    find_superpower
     @superpower.update(superpower_params)
     if @superpower.save
       redirect_to superpower_path(@superpower)
@@ -40,7 +36,6 @@ class SuperpowersController < ApplicationController
   end
 
   def destroy
-    find_superpower
     @superpower.destroy
     redirect_to superpowers_path
   end

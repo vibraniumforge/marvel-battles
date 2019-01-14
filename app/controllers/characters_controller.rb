@@ -11,7 +11,8 @@ class CharactersController < ApplicationController
 
   def new
     @character=Character.new
-    @character.superpower.build()
+    binding.pry
+    @character.build_superpower
   end
 
   def create
@@ -43,7 +44,7 @@ class CharactersController < ApplicationController
   private
 
     def character_params
-      params.require(:character).permit(:name, :callsign, :superpower_attributes => [:name, :id])
+      params.require(:character).permit(:name, :alias, :superpower_attributes => [:name, :id])
     end
 
     def find_character

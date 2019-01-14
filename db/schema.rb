@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 2019_01_14_010016) do
 
   create_table "characters", force: :cascade do |t|
     t.string "name"
-    t.string "callsign"
+    t.string "alias"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

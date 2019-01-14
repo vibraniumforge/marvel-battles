@@ -1,11 +1,12 @@
 class BattlesController < ApplicationController
 
+  before_action :find_battle, only: [:update, :show, :edit, :delete]
+
   def index
     @battles=Battle.all
   end
 
   def show
-    find_battle
   end
 
   def new
@@ -26,11 +27,9 @@ class BattlesController < ApplicationController
   end
 
   def edit
-    find_battle
   end
 
   def update
-    find_battle
     @battle.update(battle_params)
     if @battle.save
       redirect_to battle_path(@battle)
@@ -40,7 +39,6 @@ class BattlesController < ApplicationController
   end
 
   def destroy
-    find_battle
     @battle.destroy
     redirect_to battles_path
   end

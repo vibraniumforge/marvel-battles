@@ -1,11 +1,12 @@
 class MoviesController < ApplicationController
 
+  before_action :find_movie, only: [:update, :show, :edit, :delete]
+
   def index
     @movies=Movie.all
   end
 
   def show
-    find_movie
   end
 
   def new
@@ -23,11 +24,9 @@ class MoviesController < ApplicationController
   end
 
   def edit
-    find_movie
   end
 
   def update
-    find_movie
     @movie.update(movie_params)
     if @movie.save
       redirect_to movie_path(@movie)
@@ -37,7 +36,6 @@ class MoviesController < ApplicationController
   end
 
   def destroy
-    find_movie
     @movie.destroy
     redirect_to movies_path
   end

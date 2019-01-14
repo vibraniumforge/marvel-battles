@@ -4,9 +4,11 @@
 <h1>Show a character</h1>
 
 <p>Name: <%= @character.name %></p>
-<p>Callsign: <%= @character.callsign %></p>
+<p>Alias: <%= @character.alias %></p>
 <p>Superpower: <%= @character.superpower.name %></p>
 <br>
 <%= link_to "Edit Character", edit_character_path(@character) %>
 <br>
 <%= link_to "Delete", @character, method: :delete, data: { confirm: "Really?" } %>
+<br>
+<%= link_to "View all Characters", characters_path %><br>
