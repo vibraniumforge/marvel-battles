@@ -19,8 +19,17 @@
     </p>
     <p>
       <%= f.label :callsign %>
-     <%= f.text_field :callsign %>
+      <%= f.text_field :callsign %>
    </p>
-     <%= f.submit %>
+   <p>
+  <br>
+  <h3>superpower</h3>
+  <%= f.fields_for :superpower do |superpower| %>
+    <p>
+    <%= superpower.label :name %>
+    <%= superpower.text_field :name %>
+    </p>
+  <% end %>
+  <%= f.submit %>
  <% end %>
      

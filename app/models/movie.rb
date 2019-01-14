@@ -1,4 +1,4 @@
-class Movie < ApplicationRecord
+class Movie < ActiveRecord::Base
     
     has_many :battles
     has_many :characters, through: :battles

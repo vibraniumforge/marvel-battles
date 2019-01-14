@@ -6,8 +6,10 @@
 <% @characters.each do |character| %>
     <li>
       <%= link_to character.name, character_path(character) %>
-      a.k.a.
+      a.k.a.:
       <%= link_to character.callsign, character_path(character) %>
+      superpower:
+      <%= link_to character.superpower.name, character_path(character) %>
     </li>
 <% end %>
 </ol>

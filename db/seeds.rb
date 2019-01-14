@@ -40,17 +40,13 @@ characters = Character.create([
     {name:"James Barnes", callsign:"Winter Soldier"},
     {name:"Sam Wilson", callsign:"Falcon"},
     {name:"Pietro Maximoff", callsign:"Quicksilver"},
+
     {name:"Wanda Maximoff", callsign:"Scarlet Witch"},
     {name:"Scott Lang", callsign:"Ant-Man"},
     {name:"Peter Parker", callsign:"Spider-Man"},
     {name:"Steven Strange", callsign:"Dr. Strange"},
     {name:"T'Challa", callsign:"Black Panther"},
     {name:"Hope Van Dyne", callsign:"The Wasp"},
-    {name:"Obadiah Stane", callsign:"Iron Monger"},
-    {name:"Emil Blonsky", callsign:"Abomination"},
-    {name:"Ivan Vanko", callsign:"Whiplash"},
-    {name:"Loki Laufeyson", callsign:"Loki"},
-    {name:"Johann Schmidt", callsign:"Red Skull"}
 ])
 
 superpowers = Superpower.create([
@@ -64,6 +60,7 @@ superpowers = Superpower.create([
     {name: "Jetpack", character_id: Character.find_by(name: "Sam Wilson").id },
     {name: "Vibranium Arm", character_id: Character.find_by(name: "James Barnes").id },
     {name: "Magic", character_id: Character.find_by(name: "Wanda Maximoff").id },
+
     {name: "Runs Fast", character_id: Character.find_by(name: "Pietro Maximoff").id },
     {name: "Shrinking Suit", character_id: Character.find_by(name: "Scott Lang").id },
     {name: "Magic", character_id: Character.find_by(name: "Steven Strange").id },
