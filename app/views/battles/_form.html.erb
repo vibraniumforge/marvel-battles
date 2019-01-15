@@ -27,15 +27,15 @@
    <%= f.fields_for :movie do |movie| %>
      <p>
        <%= f.label :name %>
-       <%= collection_select(:movie, :id, Movie.all, :id, :name) %>
+       <%= movie.collection_select(:id, Movie.all, :id, :name) %>
        </p>
    <% end %>
    <br>
    <h3>Character:</h3>
    <%= f.fields_for :character do |character| %>
      <p>
-     <%= f.label :name %>
-       <%= collection_select(:character, :id, Character.all, :id, :name) %>
+     <%= f.label :character %>
+       <%= character.collection_select(:id, Character.all, :id, :name) %>
      </p>
    <% end %>
    <br>

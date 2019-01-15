@@ -1,4 +1,3 @@
-
 class BattlesController < ApplicationController
 
   before_action :find_battle, only: [:update, :show, :edit, :delete]
@@ -12,7 +11,6 @@ class BattlesController < ApplicationController
 
   def new
     @battle=Battle.new
-
   end
 
   def create
@@ -48,7 +46,12 @@ class BattlesController < ApplicationController
   private
 
     def battle_params
-      params.require(:battle).permit(:name, :location, :character_attributes => [:id], :movie_attributes => [:id] )
+      # params.require(:battle).permit(:name, :location, :character_attributes => [:id], :movie_attributes => [:id] )
+      params.require(:battle).permit(:name, :location, :movie_id, {:character => [:id]} )
+      # params.require(:battle).permit(:name, :location,{:movie => [:id]}, {:character => [:id]} )
+      # params.require(:battle).permit(:name, :location, :character_attributes => [:id], :movie_attributes => [:id])
+      # params.require(:battle).permit(:name, :location, character_attributes => [:id],movie_attributes: [:id])
+      
     end
 
     def find_battle
