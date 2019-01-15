@@ -9,8 +9,8 @@ class Battle < ActiveRecord::Base
     validates :name, presence: true
     validates :location, presence: true
 
-    # def is_cap
-    #     BattleCharacter.where(Character.name: 'Steve Rogers').
-    # end
+    def self.first_five
+        all.limit(5)
+    end
 
 end
