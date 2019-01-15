@@ -5,4 +5,5 @@ class StaticPagesController < ApplicationController
       @user = User.find(session[:user_id])
     end
   end
-  end
+
+end

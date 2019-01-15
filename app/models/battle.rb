@@ -1,8 +1,8 @@
 class Battle < ActiveRecord::Base
 
     belongs_to :movie
-    has_many :battle_characters
-    has_many :characters, through: :battle_characters
+    belongs_to :character
+    has_many :characters, through: :battles
     accepts_nested_attributes_for :characters
 
     

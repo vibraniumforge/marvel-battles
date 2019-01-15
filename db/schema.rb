@@ -10,25 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_15_005618) do
-
-  create_table "battle_characters", force: :cascade do |t|
-    t.integer "battle_id"
-    t.integer "character_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "battlecharacters", force: :cascade do |t|
-    t.integer "battle_id"
-    t.integer "character_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
+ActiveRecord::Schema.define(version: 2019_01_15_005512) do
 
   create_table "battles", force: :cascade do |t|
     t.string "name"
     t.string "location"
+    t.integer "character_id"
+    t.integer "movie_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

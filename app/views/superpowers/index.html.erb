@@ -3,11 +3,11 @@
 
 <h1>List of all Superpowers</h1>
 <ol>
-<% @superpowers.each do |superpower| %>
+
     <li>
-      <%= link_to superpower.name, superpower_path(superpower) %>
+      <%= @superpowers.name %>
       -
-      <%= link_to Character.find(superpower.character_id).name, superpower_path(superpower) %>
+      <%= link_to @superpowers.character.name, character_path(@character) %>
     </li>
-<% end %>
+
 </ol>

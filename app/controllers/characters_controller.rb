@@ -17,7 +17,7 @@ class CharactersController < ApplicationController
   def create
     @character=Character.create(character_params)
     if @character.save
-      redirect_to characters_path(@character)
+      redirect_to characters_path
     else
       render :new
     end
