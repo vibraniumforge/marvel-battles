@@ -14,11 +14,9 @@ class BattlesController < ApplicationController
   end
 
   def create
-    # @battle=Battle.create(battle_params)
-    @battle=Battle.create(battle: params[:battle][:name], location: params[:battle][:location], movie: params[:movie][:id], character: params[:character[:id]])
-    binding.pry
+    @battle=Battle.create(battle_params)
+    # @battle=Battle.create(battle: params[:battle][:name], location: params[:battle][:location], movie: params[:movie][:id], character: params[:character[:id]])
     @battle.save
-    binding.pry
     if @battle.save
       redirect_to battles_path(@battle)
     else

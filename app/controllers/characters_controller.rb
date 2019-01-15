@@ -15,9 +15,7 @@ class CharactersController < ApplicationController
   end
 
   def create
-    binding.pry
     @character=Character.create(character_params)
-    binding.pry
     if @character.save
       redirect_to characters_path(@character)
     else
