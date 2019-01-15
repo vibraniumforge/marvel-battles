@@ -1,4 +1,3 @@
-
 class SessionsController < ApplicationController
   
   def create
@@ -8,7 +7,7 @@ class SessionsController < ApplicationController
       u.image = auth['info']['image']
     end
     session[:user_id] = @user.id
-    render 'welcome/home'
+    redirect_to root_url
   end
  
   private
@@ -16,28 +15,4 @@ class SessionsController < ApplicationController
   def auth
     request.env['omniauth.auth']
   end
-end
-
-SESSION NO  N CONTROLLERS
-
-class SessionController < ApplicationController
-  
-  def new
-  end
-
-  def create
-    @user = User.find_by(name: params[:name])
-      return head(:forbidden) unless @user.authenticate(params[:password])
-      session[:user_id] = @user.id
-      redirect_to root_url
-  end
-
-  def destroy
-      if current_user
-          session.delete :user_id
-          redirect_to root_url
-      end
-  end
-
-
 end

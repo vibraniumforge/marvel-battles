@@ -39,3 +39,7 @@ body {
   ol {
     list-style-type: none;
   }
+
+  #error_explanation {
+    color:red;
+  }
