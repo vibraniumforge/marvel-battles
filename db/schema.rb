@@ -10,7 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_14_010016) do
+ActiveRecord::Schema.define(version: 2019_01_15_005618) do
+
+  create_table "battle_characters", force: :cascade do |t|
+    t.integer "battle_id"
+    t.integer "character_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "battlecharacters", force: :cascade do |t|
     t.integer "battle_id"
@@ -43,6 +50,13 @@ ActiveRecord::Schema.define(version: 2019_01_14_010016) do
   create_table "superpowers", force: :cascade do |t|
     t.string "name"
     t.integer "character_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "name"
+    t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
