@@ -1,0 +1,12 @@
+<h1>My User Home Page</h1>
+
+<p>Name: <%= @user.name %></p>
+
+<br>
+<%= link_to "See all Battles", battles_path %>
+<br>
+<%= link_to "See all Characters", characters_path %>
+<br>
+<%= link_to "See all Movies", movies_path %>
+<br>
+<%= link_to "Log Out", session_path, method:"delete" %>

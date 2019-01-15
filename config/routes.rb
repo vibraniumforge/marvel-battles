@@ -6,8 +6,9 @@ Rails.application.routes.draw do
     resources :superpowers
   end
   resources :movies
+  resources :users, only: [:new, :create, :show]
   
-
+  get '/signup', to: "users#new"
   get '/signin', to: "session#new"
   post '/signin', to: "session#create"
   delete '/session', to: "session#destroy"

@@ -1,3 +1,4 @@
+
 class BattlesController < ApplicationController
 
   before_action :find_battle, only: [:update, :show, :edit, :delete]
@@ -46,7 +47,7 @@ class BattlesController < ApplicationController
   private
 
     def battle_params
-      params.require(:battle).permit(:name, :location, :movie_id, :character_id)
+      params.require(:battle).permit(:name, :location, [:movie][:id], [:character][:id])
     end
 
     def find_battle

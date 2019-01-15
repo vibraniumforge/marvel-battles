@@ -1,0 +1,2 @@
+class BattleCharacter < ApplicationRecord
+end

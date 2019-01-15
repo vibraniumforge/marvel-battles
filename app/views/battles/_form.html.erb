@@ -1,36 +1,45 @@
-<% if @battle.errors.any? %>
-  <div id="error_explanation">
-    <h2>
-      <%= pluralize(@battle.errors.count, "error") %>
-      prohibited this post from being saved:
-    </h2>
-    <ul>
-      <% @battle.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-    </ul>
-  </div>
-<% end %>
-
-
-<%= form_for @battle do |f|%>
-  <p>
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-  </p>
-  <p>
-    <%= f.label :location %>
-    <%= f.text_field :location %>
-  </p>
-  <p>
-    <%= f.label :movie %>
-    <%= collection_select(:movie, :id, Movie.all, :id, :name) %></p>
-  </p>
-  <p>
-  <%= f.label :character %>
-    <%= collection_select(:character, :id, Character.all, :id, :name) %></p>
-  </p>
-  <br>
-    <%= f.submit %>
-    
-<% end %>
+	 
+	 <% if @battle.errors.any? %>
+   <div id="error_explanation">
+     <h2>
+       <%= pluralize(@battle.errors.count, "error") %>
+       prohibited this post from being saved:
+     </h2>
+     <ul>
+       <% @battle.errors.full_messages.each do |msg| %>
+         <li><%= msg %></li>
+       <% end %>
+     </ul>
+   </div>
+ <% end %>
+ 
+ 
+ <%= form_for @battle do |f|%>
+   <p>
+     <%= f.label :name %>
+     <%= f.text_field :name %>
+   </p>
+   <p>
+     <%= f.label :location %>
+     <%= f.text_field :location %>
+   </p>
+ 
+   <h3>Movie:</h3>
+   <%= f.fields_for :movie do |movie| %>
+     <p>
+       <%= movie.label :name %>
+       <%= collection_select(:movie, :id, Movie.all, :id, :name) %></p>
+     </p>
+   <% end %>
+   <br>
+   <h3>Character:</h3>
+   <%= fields_for :character do |character| %>
+     <p>
+     <%= f.label :character %>
+       <%= collection_select(:character, :id, Character.all, :id, :name) %></p>
+     </p>
+   <% end %>
+   <br>
+   <%= f.submit %>
+ <% end %>
+ 
