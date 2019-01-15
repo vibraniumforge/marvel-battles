@@ -26,7 +26,7 @@
    <h3>Movie:</h3>
    <%= f.fields_for :movie do |movie| %>
      <p>
-       <%= f.label :movie %>
+       <%= f.label :name %>
        <%= collection_select(:movie, :id, Movie.all, :id, :name) %>
        </p>
    <% end %>
@@ -34,7 +34,7 @@
    <h3>Character:</h3>
    <%= f.fields_for :character do |character| %>
      <p>
-     <%= f.label :character %>
+     <%= f.label :name %>
        <%= collection_select(:character, :id, Character.all, :id, :name) %>
      </p>
    <% end %>

@@ -11,7 +11,6 @@ class CharactersController < ApplicationController
 
   def new
     @character=Character.new
-
     @character.build_superpower
   end
 

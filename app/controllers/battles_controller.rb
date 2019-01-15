@@ -12,7 +12,7 @@ class BattlesController < ApplicationController
 
   def new
     @battle=Battle.new
-    @battle.build(:movie, :character)
+
   end
 
   def create
