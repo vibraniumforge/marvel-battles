@@ -12,7 +12,6 @@
    </div>
  <% end %>
  
- 
  <%= form_for @battle do |f|%>
    <p>
      <%= f.label :name %>
@@ -25,20 +24,18 @@
  
    <h3>Movie:</h3>
    <%= f.fields_for :movie do |movie| %>
-     <p>
-       <%= f.label :name %>
-       <%= movie.collection_select(:id, Movie.all, :id, :name) %>
-       </p>
+       <%= f.label :name %><br>
+       <%= movie.collection_select(:id, Movie.all, :id, :name) %><br>
    <% end %>
    <br>
    <h3>Character:</h3>
    <%= f.fields_for :character do |character| %>
      <p>
-     <%= f.label :character %>
+     <%= f.label :name %><br>
        <%= character.collection_select(:id, Character.all, :id, :name) %>
      </p>
    <% end %>
    <br>
-   <%= f.submit %>
+   <%= f.submit %><br>
  <% end %>
  
