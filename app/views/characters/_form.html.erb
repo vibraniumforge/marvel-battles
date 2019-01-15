@@ -20,18 +20,13 @@
     <p>
       <%= f.label :alias %>
       <%= f.text_field :alias %>
-   </p>
-   <p>
-  <br>
+    </p>
+    <br>
   <h3>superpower</h3>
   <%= f.fields_for :superpower do |superpower| %>
     <p>
-    <%= superpower.label :name %>
-    <%= superpower.text_field :name %>
-    </p>
-    <p>
-    <%= superpower.label :character.name %>
-    <%= superpower.text_field :character.name %>
+      <%= superpower.label :name %>
+      <%= superpower.text_field :name %>
     </p>
   <% end %>
   <%= f.submit %>

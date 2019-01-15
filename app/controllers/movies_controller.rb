@@ -1,6 +1,6 @@
 class MoviesController < ApplicationController
 
-  before_action :find_movie, only: [:update, :show, :edit, :delete]
+  before_action :find_movie, only: [:update, :show, :edit, :destroy]
 
   def index
     @movies=Movie.all
