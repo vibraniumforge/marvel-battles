@@ -46,7 +46,8 @@ class BattlesController < ApplicationController
   private
 
     def battle_params
-      params.require(:battle).permit(:name, :location, :character[:id], :movie[:id])
+      params.require(:battle).permit(:name, :location, :character_id, :movie_id)
+      # params.require(:battle).permit(:name, :location, :character[:id], :movie[:id])
       # params.require(:battle).permit(:name, :location, :character_attributes => [:id], :movie_attributes => [:id])
 
       # params.require(:battle).permit(:name, :location, :character_attributes => [:id], :movie_attributes => [:id])
