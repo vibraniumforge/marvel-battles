@@ -14,9 +14,7 @@ class BattlesController < ApplicationController
   end
 
   def create
-    binding.pry
     @battle=Battle.create(battle_params)
-    binding.pry
     if @battle.save
       redirect_to battles_path
     else

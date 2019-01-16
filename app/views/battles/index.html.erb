@@ -8,9 +8,10 @@
     <tr>
       <th>Name</th>
       <th>Location</th>
-      <th>Character</th>
       <th>Movie</th>
-      <th colspan="4"></th>
+      <th>Year</th>
+      <th>Characters</th>
+      <th colspan="5"></th>
     </tr>
   </thead>
 
@@ -19,8 +20,9 @@
       <tr>
         <td><%= link_to battle.name, battle_path(battle) %></td>
         <td><%= link_to battle.location, battle_path(battle) %></td>
-        <td><%= link_to battle.character.name, battle_path(battle) %></td>
         <td><%= link_to battle.movie.name, battle_path(battle) %></td>
+        <td><%= link_to battle.movie.year, battle_path(battle) %></td>
+        <td><%= link_to battle.character.name, battle_path(battle) %></td>
       </tr>
     <% end %>
   </tbody>
