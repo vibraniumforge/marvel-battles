@@ -1,17 +1,18 @@
 class CharactersController < ApplicationController
 
-  before_action :find_character, only: [:update, :show, :edit, :delete]
+  before_action :find_character, only: [:update, :show, :edit, :destroy]
 
   def index
     @characters=Character.all
   end
 
   def show
+    binding.pry
   end
 
   def new
     @character=Character.new
-    @character.build_superpower
+    # @character.build_superpower
   end
 
   def create

@@ -48,8 +48,8 @@ class SuperpowersController < ApplicationController
       params.require(:superpower).permit(:name, [:character][:id])
     end
 
-    def find_character
-      @character=Character.find(params[:character_id])
+    def find_superpower
+      @superpower=Superpower.find(params[:character_id])
     end
 
     def find_superpower

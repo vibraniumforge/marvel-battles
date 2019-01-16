@@ -2,12 +2,23 @@
 <p>Find me in app/views/superpowers/index.html.erb</p>
 
 <h1>List of all Superpowers</h1>
-<ol>
+<br>
+<table>
+  <thead>
+    <tr>
+      <th>Character</th>
+      <th>Superpower</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
 
-    <li>
-      <%= @superpowers.name %>
-      -
-      <%= link_to @superpowers, character_path(@character) %>
-    </li>
-
-</ol>
+  <tbody>
+    <% @characters.each do |character| %>
+      <tr>
+        <td><%= link_to character.name, character_path(character) %></td>
+        <td><%= link_to character.alias, character_path(character) %></td>
+        <td><%= link_to character.superpowers.name, character_path(character) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

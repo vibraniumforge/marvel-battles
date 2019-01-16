@@ -2,17 +2,28 @@
 <p>Find me in app/views/battles/index.html.erb</p>
 
 <h1>List of all Battles</h1>
-<ol>
-<% @battles.each do |battle| %>
-    <li>
-      <%= link_to battle.name, battle_path(battle) %>
-      <%= link_to battle.location, battle_path(battle) %>
-      <%= link_to battle.movie.name, battle_path(battle) %>
-      -
-      <%= link_to battle.movie.year, battle_path(battle) %>
-      <%= link_to battle.character.name, battle_path(battle) %>
-    </li>
-<% end %>
-</ol>
+<br>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Location</th>
+      <th>Character</th>
+      <th>Movie</th>
+      <th colspan="4"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @battles.each do |battle| %>
+      <tr>
+        <td><%= link_to battle.name, battle_path(battle) %></td>
+        <td><%= link_to battle.location, battle_path(battle) %></td>
+        <td><%= link_to battle.character.name, battle_path(battle) %></td>
+        <td><%= link_to battle.movie.name, battle_path(battle) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 <br>
 <%= link_to "New Battle", new_battle_path %>

@@ -1,6 +1,6 @@
 class BattlesController < ApplicationController
 
-  before_action :find_battle, only: [:update, :show, :edit, :delete]
+  before_action :find_battle, only: [:update, :show, :edit, :destroy]
 
   def index
     @battles=Battle.all

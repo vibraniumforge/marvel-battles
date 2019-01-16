@@ -5,10 +5,10 @@
 
 <p>Name: <%= @character.name %></p>
 <p>Alias: <%= @character.alias %></p>
-<p>Superpower: <%= @character.superpowers.name %></p>
+<p>Superpower: <%= @character.superpowers %></p>
 <br>
 <%= link_to "Edit Character", edit_character_path(@character) %>
 <br>
-<%= link_to "Delete", @character, method: :delete, data: { confirm: "Really?" } %>
+<%= link_to "Delete Character", @character, method: :delete, data: { confirm: "Really?" } %>
 <br>
 <%= link_to "View all Characters", characters_path %><br>

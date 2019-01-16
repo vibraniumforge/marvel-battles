@@ -2,16 +2,27 @@
 <p>Find me in app/views/characters/index.html.erb</p>
 
 <h1>List of all Characters</h1>
-<ol>
-<% @characters.each do |character| %>
-    <li>
-      <%= link_to character.name, character_path(character) %>
-      alias:
-      <%= link_to character.alias, character_path(character) %>
-      superpower:
-      <%= link_to character.superpowers.name, character_path(character) %>
-    </li>
-<% end %>
-</ol>
+<br>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Callsign</th>
+      <th>Superpower</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @characters.each do |character| %>
+      <tr>
+        <td><%= link_to character.name, character_path(character) %></td>
+        <td><%= link_to character.alias, character_path(character) %></td>
+        <td><%= link_to character.superpowers.name, character_path(character) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
 <br>
 <%= link_to "New Character", new_character_path %>
