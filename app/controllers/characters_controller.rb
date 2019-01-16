@@ -4,10 +4,10 @@ class CharactersController < ApplicationController
 
   def index
     @characters=Character.all
+
   end
 
   def show
-    binding.pry
   end
 
   def new

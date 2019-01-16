@@ -5,7 +5,10 @@
 
 <p>Name: <%= @character.name %></p>
 <p>Alias: <%= @character.alias %></p>
-<p>Superpower: <%= @character.superpowers %></p>
+<p>Superpower:<% @character.superpowers.each do |p|  %>
+    <%= link_to p.name, character_path(@character) %>
+  <% end %>
+  </p>
 <br>
 <%= link_to "Edit Character", edit_character_path(@character) %>
 <br>

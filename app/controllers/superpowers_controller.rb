@@ -5,11 +5,10 @@ class SuperpowersController < ApplicationController
   def index
     find_character
     @superpowers=@character.superpowers
-    binding.pry
+  
   end
 
   def show
-    binding.pry
   end
 
   def new
@@ -49,11 +48,11 @@ class SuperpowersController < ApplicationController
     end
 
     def find_superpower
-      @superpower=Superpower.find(params[:character_id])
+      @superpower=Superpower.find(params[:id])
     end
 
-    def find_superpower
-      @superpower=Superpower.find(params[:id])
+    def find_character
+      @character=Character.find(params[:character_id])
     end
 
 end
