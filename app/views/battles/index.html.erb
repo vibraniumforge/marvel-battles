@@ -7,6 +7,10 @@
     <li>
       <%= link_to battle.name, battle_path(battle) %>
       <%= link_to battle.location, battle_path(battle) %>
+      <%= link_to battle.movie.name, battle_path(battle) %>
+      -
+      <%= link_to battle.movie.year, battle_path(battle) %>
+      <%= link_to battle.character.name, battle_path(battle) %>
     </li>
 <% end %>
 </ol>

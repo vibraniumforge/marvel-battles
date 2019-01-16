@@ -4,10 +4,12 @@ class SuperpowersController < ApplicationController
 
   def index
     find_character
-    @superpowers=@character.superpower
+    @superpowers=@character.superpowers
+    binding.pry
   end
 
   def show
+    binding.pry
   end
 
   def new

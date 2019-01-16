@@ -18,6 +18,7 @@ class Battle < ActiveRecord::Base
     end
 
       def characters_attributes=(character_attributes)
+        binding.pry
         character_attributes.values.each do |character_attribute|
           character = Character.find_or_create_by(character_attribute)
           self.battles.build(character: character)
