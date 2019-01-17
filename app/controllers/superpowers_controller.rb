@@ -14,7 +14,7 @@ class SuperpowersController < ApplicationController
   def new
     find_character
     @superpower=Superpower.new
-    @character.superpowers.build
+    # @character.superpowers.build()
     #(@character.superpowers.size + 1).times {@superpower.build_character}
     #(@character.superpowers.size + 1).times {@superpower.character.build}
     # @superpowers=Superpower.new
@@ -23,9 +23,9 @@ class SuperpowersController < ApplicationController
 
   def create
     find_character
-    @superpower=Superpower.create(superpower_params)
+    @superpower=@character.superpowers.build(superpower_params)
     if @superpower.save
-      redirect_to superpowers_path
+      redirect_to character_superpowers_path(@character)
     else
       render :new
     end

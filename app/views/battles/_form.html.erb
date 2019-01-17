@@ -11,19 +11,12 @@
    </p>
  
    <h3>Movie:</h3>
-   <%= f.fields_for :movie do |movie| %>
       <%= f.label :name %><br>
       <%= f.collection_select(:movie_id, Movie.all, :id, :name) %><br>
- 
-   <% end %>
    <br>
    <h3>Character:</h3>
-   <%= f.fields_for :character do |character| %>
-     <p>
      <%= f.label :name %><br>
-       <%= f.collection_select(:character_id, Character.all, :id, :name) %>
-     </p>
-   <% end %>
+      <%= f.collection_select(:character_id, Character.all, :id, :name) %>
    <br>
    <%= f.submit %><br>
  <% end %>

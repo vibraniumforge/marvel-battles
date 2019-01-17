@@ -1,0 +1,14 @@
+<h1>Top 5 Recent Movies</h1>
+
+<ol>
+
+<% @movies.each do |movie| %>
+    <li>
+        <%= movie.name %>
+        <%= movie.year %>
+        <%  movie.characters.each do |mc| %>
+            <%= mc.name %>
+        <% end %>
+    </li>
+    <% end %>
+</ol>

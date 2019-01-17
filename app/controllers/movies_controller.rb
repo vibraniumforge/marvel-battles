@@ -39,6 +39,11 @@ class MoviesController < ApplicationController
     redirect_to movies_path
   end
 
+  def recent
+    @movies=Movie.all.order(year: :desc).limit(5)
+    
+  end
+
   private
 
     def movie_params

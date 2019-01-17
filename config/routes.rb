@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   
   root "static_pages#home"
+  get '/movies/recent', to: "movies#recent"
   resources :battles
   resources :characters do
     resources :superpowers
@@ -13,5 +14,6 @@ Rails.application.routes.draw do
   post '/signin', to: "session#create"
   delete '/session', to: "session#destroy"
   get '/auth/facebook/callback' => 'sessions#create'
+  
   
 end
