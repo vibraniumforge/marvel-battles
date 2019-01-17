@@ -13,13 +13,15 @@ class SuperpowersController < ApplicationController
   def new
     find_character
     @superpower=Superpower.new
-   (@character.superpowers.size + 1).times {@superpower.build_character}
+    @character.superpowers.build
+  #  (@character.superpowers.size + 1).times {@superpower.build_character}
     #(@character.superpowers.size + 1).times {@superpower.character.build}
     # @superpowers=Superpower.new
     # @superpowers=@character.superpowers
   end
 
   def create
+    find_character
     @superpower=Superpower.create(superpower_params)
     if @superpower.save
       redirect_to superpowers_path
@@ -48,7 +50,7 @@ class SuperpowersController < ApplicationController
   private
 
     def superpower_params
-      params.require(:superpower).permit(:name, [:character][:id])
+      params.require(:superpower).permit(:name)
     end
 
     def find_superpower

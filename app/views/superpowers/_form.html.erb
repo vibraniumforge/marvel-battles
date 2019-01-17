@@ -1,14 +1,10 @@
-<%= render partial: "users/errors", locals: {user: @character} %>
+<%= render partial: "users/errors", locals: {user: @superpower} %>
 
-<%= form_for @character do |f|%>
+<%= form_for [@character, @superpower] do |f|%>
 
     <h3>Name: <%= @character.name%></h3>
     <br>
     <h3>Superpower: </h3>
-    <%= f.fields_for :superpowers do |superpower| %>
-        <%= superpower.label :name %>
-        <%= superpower.text_field :name %>
-    <% end %>
     <%= f.fields_for :superpower do |superpower| %>
         <%= superpower.label :name %>
         <%= superpower.text_field :name %>

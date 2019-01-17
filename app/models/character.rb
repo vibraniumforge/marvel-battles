@@ -10,4 +10,7 @@ class Character < ActiveRecord::Base
     validates :name, presence: true
     validates :alias, presence: true
 
+    # def superpowers_attributes
+
+    # end
 end

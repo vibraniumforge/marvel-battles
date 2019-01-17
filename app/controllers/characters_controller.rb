@@ -27,7 +27,9 @@ class CharactersController < ApplicationController
   end
 
   def update
+    @character.superpowers.destroy_all
     @character.update(character_params)
+
     if @character.save
       redirect_to character_path(@character)
     else
@@ -47,7 +49,7 @@ class CharactersController < ApplicationController
       # params.require(:character).permit(:name, :alias, :character_id)
       # params.require(:character).permit(:name, :alias, [:superpower][:name])
       # params.require(:character).permit(:name, :alias, superpower_ids)
-      params.require(:character).permit(:name, :alias, superpowers:[:name])
+      params.require(:character).permit(:name, :alias, superpowers_attributes:[:name])
     end
 
     def find_character

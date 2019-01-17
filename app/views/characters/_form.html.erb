@@ -5,12 +5,14 @@
   <%= f.text_field :name %><br>
   <%= f.label :alias %>
   <%= f.text_field :alias %><br>
-  <% if @character.superpowers.size ==0 %>
 
-  <% else %>
     <h3>Superpowers:</h3>
     <ol>
     <%= f.fields_for :superpowers do |superpower| %>
+      <% if @character.superpowers.size == 0 %>
+      <%= superpower.label :name %>
+      <%= superpower.text_field :name %>
+      <% else %>
       <li>
         <%= superpower.label :name %>
         <%= superpower.text_field :name %>
