@@ -1,6 +1,6 @@
 <h1>Characters#index</h1>
 <p>Find me in app/views/characters/index.html.erb</p>
-
+<% binding.pry %>
 <h1>List of all Characters</h1>
 <br>
 <table>
@@ -28,4 +28,42 @@
 </table>
 
 <br>
-<%= link_to "New Character", new_character_path %>
+<%= link_to "New Character", new_character_path %><br>
+
+
+
+<h3>Tony</h3><br>
+<ol>
+<% @characters.tony.each do |char| %>
+  <li>
+    <%= char.name %>
+  </li>
+  <% end %>
+</ol>
+
+<h3>All the Vibranium CHaracters</h3><br>
+<ol>
+<% @characters.vibranium_characters.each do |char| %>
+  <li>
+    <%= char.name %>
+  </li>
+<% end %>
+</ol>
+
+<h3>All the Magic Characters</h3><br>
+<ol>
+<% @characters.magic_characters.each do |char| %>
+  <li>
+    <%= char.name %>
+    </li>
+  <% end %>
+</ol>
+
+<h3>All the Steves</h3><br>
+<ol>
+<% @characters.steves.each do |char| %>
+  <li>
+    <%= char.name %>
+    <li>
+  <% end %>
+<ol>
