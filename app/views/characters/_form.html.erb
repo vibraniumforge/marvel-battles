@@ -1,20 +1,23 @@
 <%= render partial: "users/errors", locals: {user: @character} %>
 
-<%= form_for @character do |f|%>
-    <p>
-     <%= f.label :name %>
-     <%= f.text_field :name %>
-    </p>
-    <p>
-      <%= f.label :alias %>
-      <%= f.text_field :alias %>
-    </p>
-    <br>
-  <h3>Superpower:</h3>
-  <%= f.fields_for :superpowers do |superpower| %>
-      <%= superpower.label :name %>
-      <%= superpower.text_field :name %>
-  <% end %>
+<%= form_for @character do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %><br>
+  <%= f.label :alias %>
+  <%= f.text_field :alias %><br>
+  <% if @character.superpowers.size ==0 %>
+
+  <% else %>
+    <h3>Superpowers:</h3>
+    <ol>
+    <%= f.fields_for :superpowers do |superpower| %>
+      <li>
+        <%= superpower.label :name %>
+        <%= superpower.text_field :name %>
+      </li>
+    <% end %>
+    </ol>
+    <% end %>
   <br>
   <%= f.submit %>
  <% end %>

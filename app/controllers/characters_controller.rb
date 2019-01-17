@@ -4,7 +4,6 @@ class CharactersController < ApplicationController
 
   def index
     @characters=Character.all
-
   end
 
   def show
@@ -12,11 +11,12 @@ class CharactersController < ApplicationController
 
   def new
     @character=Character.new
-    # @character.build_superpower
+    @character.superpowers.build
   end
 
   def create
     @character=Character.create(character_params)
+    binding.pry
     if @character.save
       redirect_to characters_path
     else
@@ -46,8 +46,11 @@ class CharactersController < ApplicationController
   private
 
     def character_params
-      # params.require(:character).permit(:name, :alias, :superpower_attributes => [:name, :character_id])
-      params.require(:character).permit(:name, :alias, :character_id)
+      # params.require(:character).permit(:name, :alias, :superpower_attributes => [:name, :id])
+      # params.require(:character).permit(:name, :alias, :character_id)
+      # params.require(:character).permit(:name, :alias, [:superpower][:name])
+      # params.require(:character).permit(:name, :alias, superpower_ids)
+      params.require(:character).permit(:name, :alias, superpowers:[:name])
     end
 
     def find_character

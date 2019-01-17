@@ -5,14 +5,19 @@ class SuperpowersController < ApplicationController
   def index
     find_character
     @superpowers=@character.superpowers
-  
+    binding.pry
   end
 
   def show
   end
 
   def new
+    find_character
     @superpower=Superpower.new
+   (@character.superpowers.size + 1).times {@superpower.build_character}
+  #  (@character.superpowers.size + 1).times {@superpower.character.build}
+    # @superpowers=Superpower.new
+    # @superpowers=@character.superpowers
   end
 
   def create

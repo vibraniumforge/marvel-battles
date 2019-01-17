@@ -1,16 +1,14 @@
-<%= render partial: "users/errors", locals: {user: @superpower} %>
+<%= render partial: "users/errors", locals: {user: @character} %>
 
-<%= form_for @superpower do |f|%>
-    <p>
-     <%= f.label :name %>
-     <%= f.text_field :name %>
-    </p>
+<%= form_for @character.superpower do |f|%>
+    <% binding.pry %>
+    <h3>Name: <%= @character.name%></h3>
     <br>
-    <p>
-     <%= f.label :character %>
-     <%= collection_select(:character, :id, Character.all, :id, :name) %></p>
-    </p>
-    <br>
-     <%= f.submit %>
- <% end %>
+    <h3>Superpower: </h3>
+    <%= f.fields_for :superpower do |superpower| %>
+        <%= superpower.label :name %>
+        <%= superpower.text_field :name %>
+    <% end %>
+    <%= f.submit %>
+<% end %>
      

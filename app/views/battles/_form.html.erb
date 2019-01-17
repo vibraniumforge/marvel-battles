@@ -13,7 +13,8 @@
    <h3>Movie:</h3>
    <%= f.fields_for :movie do |movie| %>
        <%= f.label :name %><br>
-       <%= f.collection_select(:movie_id, Movie.all, :id, :name) %><br>
+      #  <%= f.collection_select(:movie_id, Movie.all, :id, :name) %><br>
+      <%= f.collection_check_boxes :movie_id, Movie.all, :id, :name %>
    <% end %>
    <br>
    <h3>Character:</h3>
