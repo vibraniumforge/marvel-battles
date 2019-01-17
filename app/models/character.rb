@@ -15,16 +15,17 @@ class Character < ActiveRecord::Base
     end
 
     def self.vibranium_characters
-        joins(:superpowers).where(superpowers: {name: "%Vibranium%"})
+        joins(:superpowers).where(superpowers: {"name LIKE ?": "%Vibranium%"})
     end
 
     def self.magic_characters
         # joins(:superpowers).where(superpowers: {name: "%Magic%"})
-        joins(:superpowers).where(superpowers: {'name LIKE ?, "%name%"'})
+        # joins(:superpowers).where(superpowers: {'name LIKE ?, "%name%"'})
+        Character.superpowers.where("name LIKE ?", "%Magic%")
     end
 
     def self.steves
-        Character.where("name like ?", "%Steve%")
+        Character.where("name LIKE ?", "%Steve%")
     end
 
 end

@@ -23,7 +23,6 @@ class SuperpowersController < ApplicationController
 
   def create
     find_character
-    binding.pry
     @superpower=Superpower.create(superpower_params)
     if @superpower.save
       redirect_to superpowers_path

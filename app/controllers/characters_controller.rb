@@ -42,8 +42,6 @@ class CharactersController < ApplicationController
     redirect_to characters_path
   end
 
-
-
   private
 
     def character_params
