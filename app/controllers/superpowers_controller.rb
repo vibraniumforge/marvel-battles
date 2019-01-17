@@ -15,7 +15,7 @@ class SuperpowersController < ApplicationController
     find_character
     @superpower=Superpower.new
     @character.superpowers.build
-  #  (@character.superpowers.size + 1).times {@superpower.build_character}
+    #(@character.superpowers.size + 1).times {@superpower.build_character}
     #(@character.superpowers.size + 1).times {@superpower.character.build}
     # @superpowers=Superpower.new
     # @superpowers=@character.superpowers

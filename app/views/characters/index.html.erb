@@ -66,4 +66,13 @@
     <%= char.name %>
     <li>
   <% end %>
+</ol>
+
+<h3>Last 5</h3><br>
+<ol>
+<% @characters.last_five.each do |char| %>
+  <li>
+    <%= char.name %>
+    <li>
+  <% end %>
 <ol>
