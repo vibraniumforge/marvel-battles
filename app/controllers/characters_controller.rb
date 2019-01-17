@@ -28,7 +28,9 @@ class CharactersController < ApplicationController
   end
 
   def update
+    binding.pry
     @character.update(character_params)
+    binding.pry
     if @character.save
       redirect_to character_path(@character)
     else
@@ -44,7 +46,8 @@ class CharactersController < ApplicationController
   private
 
     def character_params
-      params.require(:character).permit(:name, :alias, :superpower_attributes => [:name, :character_id])
+      # params.require(:character).permit(:name, :alias, :superpower_attributes => [:name, :character_id])
+      params.require(:character).permit(:name, :alias, :character_id)
     end
 
     def find_character

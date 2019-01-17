@@ -10,12 +10,11 @@
       <%= f.text_field :alias %>
     </p>
     <br>
-  <h3>superpower</h3>
-  <%= f.fields_for :superpower do |superpower| %>
-    <p>
+  <h3>Superpower:</h3>
+  <%= f.fields_for :superpowers do |superpower| %>
       <%= superpower.label :name %>
       <%= superpower.text_field :name %>
-    </p>
   <% end %>
+  <br>
   <%= f.submit %>
  <% end %>
