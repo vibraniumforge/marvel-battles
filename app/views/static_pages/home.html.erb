@@ -8,6 +8,7 @@
 <%= image_tag("Ant-Man_poster.jpg", :alt => "Ant-Man poster") %>
 <%= image_tag("Spider-Man_Homecoming_poster", :alt => "Spider-Man Homecoming poster") %>
 <%= image_tag("Thor_Ragnarok_poster", :alt => "Thor Ragnarok poster") %>
+<br>
 <% if current_user %>
     <h1>User Name: <%= current_user.name %></h1><br>
     <h3><%= link_to "Battles", battles_path %></h3><br>
