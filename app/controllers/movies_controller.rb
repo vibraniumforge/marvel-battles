@@ -41,7 +41,6 @@ class MoviesController < ApplicationController
 
   def recent
     @movies=Movie.all.order(year: :desc).limit(5)
-    
   end
 
   private

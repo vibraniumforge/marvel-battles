@@ -1,6 +1,4 @@
 class StaticPagesController < ApplicationController
-    
-  # before_action :require_login
   
   def home
     if session[:user_id]

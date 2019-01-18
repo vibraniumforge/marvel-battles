@@ -16,7 +16,7 @@
       <tr>
         <td><%= link_to character.name, character_path(character) %></td>
         <td><%= link_to character.alias, character_path(character) %></td>
-        <td><% character.superpowers.each do |p|  %>
+        <td><% character.superpowers.each do |p| %>
           <%= link_to p.name, character_path(character) %>
         <% end %>
         </td>
@@ -66,7 +66,7 @@
   <% end %>
 </ol>
 
-<h3>Last 5</h3><br>
+<h3>Last 5 Characters</h3><br>
 <ol>
 <% @characters.last_five.each do |char| %>
   <li>

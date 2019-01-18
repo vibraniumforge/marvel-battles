@@ -45,10 +45,6 @@ class CharactersController < ApplicationController
   private
 
     def character_params
-      # params.require(:character).permit(:name, :alias, :superpower_attributes => [:name, :id])
-      # params.require(:character).permit(:name, :alias, :character_id)
-      # params.require(:character).permit(:name, :alias, [:superpower][:name])
-      # params.require(:character).permit(:name, :alias, superpower_ids)
       params.require(:character).permit(:name, :alias, superpowers_attributes:[:name])
     end
 

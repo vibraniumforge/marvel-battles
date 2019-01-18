@@ -11,10 +11,10 @@ class SessionController < ApplicationController
   end
 
   def destroy
-      if current_user
-          session.delete :user_id
-          redirect_to root_url
-      end
+    if current_user
+        session.delete :user_id
+        redirect_to root_url
+    end
   end
 
 
