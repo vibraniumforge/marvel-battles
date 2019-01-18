@@ -1,2 +1,0 @@
-class FbUser < ApplicationRecord
-end

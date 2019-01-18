@@ -1,0 +1,2 @@
+class FacebookUser < ApplicationRecord
+end

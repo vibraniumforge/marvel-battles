@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 2019_01_16_022225) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "fb_users", force: :cascade do |t|
+  create_table "facebook_users", force: :cascade do |t|
     t.string "name"
     t.string "email"
     t.string "uid"
