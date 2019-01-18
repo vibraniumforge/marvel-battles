@@ -1,11 +1,11 @@
 <h1>Welcome to the Marvel Battle Tracker!!!</h1>
 <h4>Documenting the Marvel Cinematic Universe</h4>
-
+<br>
 <% if current_user %>
-    User Name: <%= current_user.name %><br>
-    <%= link_to "Battles", battles_path %><br>
-    <%= link_to "Characters", characters_path %><br>
-    <%= link_to "Movies", movies_path %><br>
+    <h1>User Name: <%= current_user.name %></h1><br>
+    <h3><%= link_to "Battles", battles_path %></h3><br>
+    <h3><%= link_to "Characters", characters_path %></h3><br>
+    <h3><%= link_to "Movies", movies_path %></h3><br>
     <br>
     <%= link_to "Logout", session_path, method:"delete", class:"navbar-brand"%>
 <% else %>  

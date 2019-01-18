@@ -9,17 +9,12 @@
     <h3>Superpowers:</h3>
     <ol>
     <%= f.fields_for :superpowers do |superpower| %>
-      <% if @character.superpowers.size == 0 %>
-      <%= superpower.label :name %>
-      <%= superpower.text_field :name %>
-      <% else %>
       <li>
         <%= superpower.label :name %>
         <%= superpower.text_field :name %>
       </li>
     <% end %>
     </ol>
-    <% end %>
   <br>
   <%= f.submit %>
  <% end %>
