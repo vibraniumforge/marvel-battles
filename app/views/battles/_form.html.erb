@@ -1,22 +1,18 @@
 <%= render partial: "users/errors", locals: {user: @battle} %>
- 
- <%= form_for @battle do |f|%>
-   <p>
-     <%= f.label :name %>
-     <%= f.text_field :name %>
-   </p>
-   <p>
-     <%= f.label :location %>
-     <%= f.text_field :location %>
-   </p>
- 
-   <h3>Movie:</h3>
-      <%= f.label :name %><br>
-      <%= f.collection_select(:movie_id, Movie.all, :id, :name) %><br>
+
+<%= form_for @battle do |f|%>
+  <%= f.label :name %>
+  <%= f.text_field :name %><br>
+  <%= f.label :location %>
+  <%= f.text_field :location %>
+  <h3>Movie:</h3>
+    <%= f.label :name %><br>
+    <%= f.collection_select(:movie_id, Movie.all, :id, :name) %><br>
    <br>
    <h3>Character:</h3>
      <%= f.label :name %><br>
-      <%= f.collection_select(:character_id, Character.all, :id, :name) %>
+     <%= f.collection_check_boxes :character_id, Character.all, :id, :name %><br>
+    # <%= f.collection_select(:character_id, Character.all, :id, :name) %>
    <br>
    <%= f.submit %><br>
  <% end %>
