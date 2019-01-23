@@ -13,15 +13,20 @@ class Character < ActiveRecord::Base
         Character.where(name: "Tony Stark")
     end
 
+    def self.super_soldier_serum
+        joins(:superpowers).where('superpowers.name LIKE ?', "%Serum%")
+    end
+
     def self.vibranium_characters
-        # joins(:superpowers).where(superpowers: {"name LIKE ?": "%Vibranium%"})
-        joins(:superpowers).where(superpowers: {name: "%Vibranium%"})
+        joins(:superpowers).where('superpowers.name LIKE ?', "%Vibranium%")
     end
 
     def self.magic_characters
-        joins(:superpowers).where(superpowers: {name: "%Magic%"})
-        # joins(:superpowers).where(superpowers: {'name LIKE ?, "%name%"'})
-        # Character.superpowers.where("name LIKE ?", "%Magic%")
+        joins(:superpowers).where('superpowers.name LIKE ?', "%Magic%")
+    end
+
+    def self.suits
+        joins(:superpowers).where('superpowers.name LIKE ?', "%Suit%")
     end
 
     def self.steves

@@ -1,7 +1,9 @@
 <h1>Show a movie</h1>
-
+<% binding.pry %>
 <p>Name: <%= @movie.name %></p>
 <p>Year: <%= @movie.year %></p>
+<%= image_tag("@movie.poster", :alt => "Iron Man poster") %><br>
+<%= image_tag("Iron_Man_poster.jpg", :alt => "Iron Man poster") %><br>
 <br>
 <%= link_to "Edit Movie", edit_movie_path(@movie) %>
 <br>
