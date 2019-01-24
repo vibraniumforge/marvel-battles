@@ -7,26 +7,26 @@
 #   Character.create(name:  'Luke', movie: movies.first)
 
 movies = Movie.create([
-    {name: "Iron Man", year: 2008, poster: "Iron_Man_poster.jpg" },
-    {name: "The Incredible Hulk", year: 2008 poster: "The_Incredible_Hulk_poster.jpg" },
-    {name: "Iron Man 2", year: 2010 poster: "Iron_Man_2_poster.jpg" },
-    {name: "Thor", year: 2011 poster: "Thor_poster.jpg"},
-    {name: "Captain America: The First Avenger", year: 2011 poster: "Captain_America_The_First_Avenger_poster.jpg"},
-    {name: "The Avengers", year: 2012 poster: "Avengers_poster.jpg"},
-    {name: "Iron Man 3", year: 2013 poster: "Iron_Man_3_poster.jpg"},
-    {name: "Thor: The Dark World", year: 2013 poster: "Thor_-_The_Dark_World_poster.jpg"},
-    {name: "Captain America: The Winter Soldier", year: 2014 poster: "Captain_America_The_Winter_Soldier.jpg"},
-    {name: "Guardians of the Galaxy", year: 2014 poster: "Guardians_of_the_Galaxy_poster.jpg"},
-    {name: "Avengers: Age of Ultron", year: 2015 poster: "Avengers_Age_of_Ultron_poster.jpg"},
-    {name: "Ant-Man", year: 2015 poster: "Ant-Man_poster.jpg"},
-    {name: "Captain America: Civil War", year: 2016 poster: "Captain_America_Civil_War_poster.jpg"},
-    {name: "Doctor Strange", year: 2016 poster: "Doctor_Strange_poster.jpg"},
-    {name: "Guardians of the Galaxy Vol. 2", year: 2017 poster: "Guardians_of_the_Galaxy_Vol_2_poster.jpg"},
-    {name: "Spider-Man: Homecoming", year: 2017 poster: "Spider-Man_Homecoming_poster.jpg"},
-    {name: "Thor: Ragnarok", year: 2017 poster: "Thor_Ragnarok_poster.jpg"},
-    {name: "Black Panther", year: 2018 poster: "Black_Panther_poster.jpg"},
-    {name: "Avengers: Infinity War", year: 2018 poster: "Avengers_Infinity_War_poster.jpg"},
-    {name: "Ant-Man and the Wasp", year: 2018 poster: "Ant-Man_and_the_Wasp_poster.jpg"}
+    {name:  "Iron Man", year: 2008},
+    {name:  "The Incredible Hulk", year: 2008},
+    {name:  "Iron Man 2", year: 2010},
+    {name:  "Thor", year: 2011},
+    {name:  "Captain America: The First Avenger", year: 2011},
+    {name:  "The Avengers", year: 2012},
+    {name:  "Iron Man 3", year: 2013},
+    {name:  "Thor: The Dark World", year: 2013},
+    {name:  "Captain America: The Winter Soldier", year: 2014},
+    {name:  "Guardians of the Galaxy", year: 2014},
+    {name:  "Avengers: Age of Ultron", year: 2015},
+    {name:  "Ant-Man", year: 2015},
+    {name:  "Captain America: Civil War", year: 2016},
+    {name:  "Doctor Strange", year: 2016},
+    {name:  "Guardians of the Galaxy Vol. 2", year: 2017},
+    {name:  "Spider-Man: Homecoming", year: 2017},
+    {name:  "Thor: Ragnarok", year: 2017},
+    {name:  "Black Panther", year: 2018},
+    {name:  "Avengers: Infinity War", year: 2018},
+    {name:  "Ant-Man and the Wasp", year: 2018}
 ])
 
 characters = Character.create([

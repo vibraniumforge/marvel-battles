@@ -9,11 +9,20 @@ class Character < ActiveRecord::Base
     validates :name, presence: true
     validates :alias, presence: true
 
+
+    def self.original_six
+        Character.order(:id).limit(6)
+    end
+
+    def self.last_five
+        Character.order(:id).reverse_order.limit(5)
+    end
+
     def self.tony
         Character.where(name: "Tony Stark")
     end
 
-    def self.super_soldier_serum
+    def self.super_soldier_serum_characters
         joins(:superpowers).where('superpowers.name LIKE ?', "%Serum%")
     end
 
@@ -33,7 +42,12 @@ class Character < ActiveRecord::Base
         Character.where("name LIKE ?", "%Steve%")
     end
 
-    def self.last_five
-        Character.order(:name).reverse_order.limit(5)
+    def self.flyers
+        joins(:superpowers).where('superpowers.name LIKE ?', "%Flight%")
     end
+
+   
+
+   
+
 end

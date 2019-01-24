@@ -16,8 +16,8 @@
       <tr>
         <td><%= link_to character.name, character_path(character) %></td>
         <td><%= link_to character.alias, character_path(character) %></td>
-        <td><% character.superpowers.each do |p| %>
-          <%= link_to p.name, character_path(character) %>
+        <td><% character.superpowers.each do |c_s| %>
+          <%= link_to c_s.name, character_path(character) %>
         <% end %>
         </td>
       </tr>
@@ -29,6 +29,23 @@
 <%= link_to "New Character", new_character_path %><br>
 
 
+<h3>Original 6</h3><br>
+<ol>
+<% @characters.original_six.each do |character| %>
+  <li>
+    <%= character.name %>
+  <li>
+<% end %>
+</ol>
+
+<h3>Last 5 Characters</h3><br>
+<ol>
+<% @characters.last_five.each do |character| %>
+  <li>
+    <%= character.name %>
+  <li>
+<% end %>
+</ol>
 
 <h3>Tony</h3><br>
 <ol>
@@ -41,7 +58,7 @@
 
 <h3>All the Super Soldier Serum Characters</h3><br>
 <ol>
-<% @characters.super_soldier_serum.each do |character| %>
+<% @characters.super_soldier_serum_characters.each do |character| %>
   <li>
     <%= character.name %>
   </li>
@@ -75,20 +92,20 @@
 <% end %>
 </ol>
 
-<h3>Last 5 Characters</h3><br>
+<h3>All the Suits</h3><br>
 <ol>
-<% @characters.last_five.each do |character| %>
+<% @characters.suits.each do |character| %>
   <li>
     <%= character.name %>
   <li>
 <% end %>
 </ol>
 
-<h3>All the Suits</h3><br>
+<h3>All the Flyers</h3><br>
 <ol>
-<% @characters.suits.each do |character| %>
+<% @characters.flyers.each do |character| %>
   <li>
     <%= character.name %>
-    <li>
-  <% end %>
+  <li>
+<% end %>
 </ol>
