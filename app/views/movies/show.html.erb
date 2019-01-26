@@ -1,8 +1,8 @@
 <h1>Show a movie</h1>
 
+# <%= image_path("") %>
 <p>Name: <%= @movie.name %></p>
 <p>Year: <%= @movie.year %></p>
-<%= @movie.poster %><br>
 <%= image_tag("#{@movie.poster}") %><br>
 <%= link_to "Edit Movie", edit_movie_path(@movie) %>
 <br>
