@@ -1,13 +1,19 @@
 <h1>Welcome to the Marvel Battle Tracker!!!</h1>
 <h4>Documenting the Marvel Cinematic Universe</h4>
 <br>
-<%= image_tag("logo.png", :alt => "marvel logo") %>
-<%= image_tag("Avengers_poster.jpg", :alt => "Avengers poster") %>
-<%= image_tag("Captain_America_The_Winter_Soldier.jpg", :alt => "Captain America The Winter Soldier poster") %>
-<%= image_tag("Guardians_of_the_Galaxy_poster.jpg", :alt => "Guardians of the Galaxy poster") %>
-<%= image_tag("Ant-Man_poster.jpg", :alt => "Ant-Man poster") %>
-<%= image_tag("Spider-Man_Homecoming_poster", :alt => "Spider-Man Homecoming poster") %>
-<%= image_tag("Thor_Ragnarok_poster", :alt => "Thor Ragnarok poster") %>
+<%= image_tag("logo.png", :alt => "marvel logo") %><br>
+<%= image_tag("posters/Iron_Man_poster.jpg", :alt => "Iron Man poster") %>
+<%= image_tag("posters/The_Incredible_Hulk_poster.jpg", :alt => "The Incredible Hulk poster") %>
+<%= image_tag("posters/Thor_poster.jpg", :alt => "Thor poster") %>
+<%= image_tag("posters/Captain_America_The_First_Avenger_poster.jpg", :alt => "Captain America poster") %>
+<%= image_tag("posters/Avengers_poster.jpg", :alt => "Avengers poster") %>
+<br>
+<%= image_tag("posters/Captain_America_The_Winter_Soldier.jpg", :alt => "Captain America The Winter Soldier poster") %>
+<%= image_tag("posters/Guardians_of_the_Galaxy_poster.jpg", :alt => "Guardians of the Galaxy poster") %>
+<%= image_tag("posters/Ant-Man_poster.jpg", :alt => "Ant-Man poster") %>
+<%= image_tag("posters/Spider-Man_Homecoming_poster.jpg", :alt => "Spider-Man Homecoming poster") %>
+<%= image_tag("posters/Black_Panther_poster.jpg", :alt => "Black Panther poster") %>
+
 <br>
 <% if current_user %>
     <h1>User Name: <%= current_user.name %></h1><br>
