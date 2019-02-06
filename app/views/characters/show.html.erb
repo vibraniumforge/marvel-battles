@@ -2,7 +2,6 @@
 
 <p>Name: <%= @character.name %></p>
 <p>Alias: <%= @character.alias %></p>
-<%= image_tag("Iron_Man_poster.jpg", :alt => "Iron Man poster") %><br>
 
 <p>Superpowers:<% @character.superpowers.each do |p| %>
     <%= p.name %>
