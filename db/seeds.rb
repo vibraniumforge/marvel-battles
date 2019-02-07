@@ -14,6 +14,40 @@
 #   movies = Movie.create([{ name:  'Star Wars' }, { name:  'Lord of the Rings' }])
 #   Character.create(name:  'Luke', movie: movies.first)
 
+battles = Battle.create([
+    {name: "Gulmira", location: "Gulmira, Afghanistan", character_id: Character.find_by(name: "Tony Stark").id :movie_id: Movie.find_by(name: "Iron Man").id},
+    {name: "Los Angeles", location: "Los Angeles, CA, USA", character_id: Character.find_by(name: "Tony Stark").id :movie_id: Movie.find_by(name: "Iron Man").id},
+    {name: "Rio de Janiero", location: "Rio de Janiero, Brazil", character_id: Character.find_by(name: "Bruce Banner").id :movie_id: Movie.find_by(name: "The Incredible Hulk").id},
+    {name: "Culver University", location: "Culver, VA, USA", character_id: Character.find_by(name: "Bruce Banner").id :movie_id: Movie.find_by(name: "The Incredible Hulk").id},
+    {name: "Harlem", location: "Harlem, NY, USA", character_id: Character.find_by(name: "Bruce Banner").id :movie_id: Movie.find_by(name: "The Incredible Hulk").id},
+    {name: "Monte Carlo", location: "Monte Carlo, Monaco", character_id: Character.find_by(name: "Tony Stark").id :movie_id: Movie.find_by(name: "Iron Man 2").id},
+    {name: "Queens", location: "Queens, NY, USA", character_id: Character.find_by(name: "Tony Stark").id :movie_id: Movie.find_by(name: "Iron Man 2").id},
+    {name: "New Mexico", location: "Puente Antiguo, NM, USA", character_id: Character.find_by(name: "Thor Odinson").id :movie_id: Movie.find_by(name: "Thor").id},
+    {name: "Azzano", location: "Azzano, Italy", character_id: Character.find_by(name: "Steve Rogers").id :movie_id: Movie.find_by(name: "Captain America: The First Avenger").id},
+    {name: "Helicarrier", location: "Aboard the Helicarrier", character_id: Character.find_by(name: "Thor Odinson").id :movie_id: Movie.find_by(name: "The Avengers").id},
+    {name: "New York", location: "New York, NY, USA", character_id: Character.find_by(name: "Steve Rogers").id :movie_id: Movie.find_by(name: "The Avengers").id},
+
+])
+characters = Character.create([
+    {name: "Steve Rogers", alias: "Captain America"},
+    {name: "Tony Stark", alias: "Iron Man"},
+    {name: "Bruce Banner", alias: "The Hulk"},
+    {name: "Thor Odinson", alias: "Thor"},
+    {name: "Natasha Romanoff", alias: "Black Widow"},
+    {name: "Clint Barton", alias: "Hawkeye"},
+    {name: "James Rhoades", alias: "War Machine"},
+    {name: "James Barnes", alias: "Winter Soldier"},
+    {name: "Sam Wilson", alias: "Falcon"},
+    {name: "Pietro Maximoff", alias: "Quicksilver"},
+    {name: "Wanda Maximoff", alias: "Scarlet Witch"},
+    {name: "Vision", alias: "Vision"},
+    {name: "Scott Lang", alias: "Ant-Man"},
+    {name: "Peter Parker", alias: "Spider-Man"},
+    {name: "Steven Strange", alias: "Dr. Strange"},
+    {name: "T'Challa", alias: "Black Panther"},
+    {name: "Hope Van Dyne", alias: "The Wasp"},
+])
+
 movies = Movie.create([
     {name: "Iron Man", year: 2008, poster: "Iron_Man_poster.jpg" },
     {name: "The Incredible Hulk", year: 2008, poster: "The_Incredible_Hulk_poster.jpg" },
@@ -35,26 +69,6 @@ movies = Movie.create([
     {name: "Black Panther", year: 2018, poster: "Black_Panther_poster.jpg"},
     {name: "Avengers: Infinity War", year: 2018, poster: "Avengers_Infinity_War_poster.jpg"},
     {name: "Ant-Man and the Wasp", year: 2018, poster: "Ant-Man_and_the_Wasp_poster.jpg"}
-])
-
-characters = Character.create([
-    {name: "Steve Rogers", alias: "Captain America"},
-    {name: "Tony Stark", alias: "Iron Man"},
-    {name: "Bruce Banner", alias: "The Hulk"},
-    {name: "Thor Odinson", alias: "Thor"},
-    {name: "Natasha Romanoff", alias: "Black Widow"},
-    {name: "Clint Barton", alias: "Hawkeye"},
-    {name: "James Rhoades", alias: "War Machine"},
-    {name: "James Barnes", alias: "Winter Soldier"},
-    {name: "Sam Wilson", alias: "Falcon"},
-    {name: "Pietro Maximoff", alias: "Quicksilver"},
-    {name: "Wanda Maximoff", alias: "Scarlet Witch"},
-    {name: "Vision", alias: "Vision"},
-    {name: "Scott Lang", alias: "Ant-Man"},
-    {name: "Peter Parker", alias: "Spider-Man"},
-    {name: "Steven Strange", alias: "Dr. Strange"},
-    {name: "T'Challa", alias: "Black Panther"},
-    {name: "Hope Van Dyne", alias: "The Wasp"},
 ])
 
 superpowers = Superpower.create([
