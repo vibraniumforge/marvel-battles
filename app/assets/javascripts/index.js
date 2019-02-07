@@ -29,15 +29,16 @@ class Movie {
         this.name = obj.name;
         this.year = obj.year;
         this.poster = obj.poster;
+        this.id = obj.id
     }
 }
 
 Movie.prototype.movieHTML = function (){
     return (`
-        <div>
-            <p>${this.name}</p><br>
-            <p>${this.year}</p><br>
-            <p>${this.poster}</p><br>
-        </div>
+        <tr>
+            <td><a href="/movies/${this.id}">${this.name}<a></td>
+            <td><a href="/movies/${this.id}">${this.year}<a></td>
+        <tr>    
+  
     `)
 }
