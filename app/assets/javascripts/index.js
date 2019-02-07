@@ -60,6 +60,7 @@ function getBattles() {
         dataType: "json"
     })
     .done(function(response) {
+        console.log(response[0])
         let battles = response.map(item => {
             let battle = new Battle(item);
             let battleHtml = battle.battleHTML();
@@ -70,11 +71,14 @@ function getBattles() {
 
 class Battle {
     constructor(obj) {
+        console.log("obj=", obj)
         this.name = obj.name;
         this.location = obj.location;
         this.character_id = obj.character_id;
         this.movie_id = obj.movie_id;
-        this.id = obj.id
+        this.id = obj.id;
+        // this.movie.name = obj.movie.name
+        // this.movie.year = obj.movie.year
     }
 }
 

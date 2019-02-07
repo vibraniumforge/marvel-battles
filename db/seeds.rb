@@ -14,21 +14,9 @@
 #   movies = Movie.create([{ name:  'Star Wars' }, { name:  'Lord of the Rings' }])
 #   Character.create(name:  'Luke', movie: movies.first)
 
-battles = Battle.create([
-    {name: "Gulmira", location: "Gulmira, Afghanistan", character_id: Character.find_by(name: "Tony Stark").id :movie_id: Movie.find_by(name: "Iron Man").id},
-    {name: "Los Angeles", location: "Los Angeles, CA, USA", character_id: Character.find_by(name: "Tony Stark").id :movie_id: Movie.find_by(name: "Iron Man").id},
-    {name: "Rio de Janiero", location: "Rio de Janiero, Brazil", character_id: Character.find_by(name: "Bruce Banner").id :movie_id: Movie.find_by(name: "The Incredible Hulk").id},
-    {name: "Culver University", location: "Culver, VA, USA", character_id: Character.find_by(name: "Bruce Banner").id :movie_id: Movie.find_by(name: "The Incredible Hulk").id},
-    {name: "Harlem", location: "Harlem, NY, USA", character_id: Character.find_by(name: "Bruce Banner").id :movie_id: Movie.find_by(name: "The Incredible Hulk").id},
-    {name: "Monte Carlo", location: "Monte Carlo, Monaco", character_id: Character.find_by(name: "Tony Stark").id :movie_id: Movie.find_by(name: "Iron Man 2").id},
-    {name: "Queens", location: "Queens, NY, USA", character_id: Character.find_by(name: "Tony Stark").id :movie_id: Movie.find_by(name: "Iron Man 2").id},
-    {name: "New Mexico", location: "Puente Antiguo, NM, USA", character_id: Character.find_by(name: "Thor Odinson").id :movie_id: Movie.find_by(name: "Thor").id},
-    {name: "Azzano", location: "Azzano, Italy", character_id: Character.find_by(name: "Steve Rogers").id :movie_id: Movie.find_by(name: "Captain America: The First Avenger").id},
-    {name: "Helicarrier", location: "Aboard the Helicarrier", character_id: Character.find_by(name: "Thor Odinson").id :movie_id: Movie.find_by(name: "The Avengers").id},
-    {name: "New York", location: "New York, NY, USA", character_id: Character.find_by(name: "Steve Rogers").id :movie_id: Movie.find_by(name: "The Avengers").id},
 
-])
 characters = Character.create([
+    
     {name: "Steve Rogers", alias: "Captain America"},
     {name: "Tony Stark", alias: "Iron Man"},
     {name: "Bruce Banner", alias: "The Hulk"},
@@ -103,4 +91,18 @@ superpowers = Superpower.create([
     {name: "Heart Shaped Herb", character_id: Character.find_by(name: "T'Challa").id },
     {name: "Shrinking Suit with Wings", character_id: Character.find_by(name: "Hope Van Dyne").id },
     {name: "Flight", character_id: Character.find_by(name: "Hope Van Dyne").id }
+])
+
+battles = Battle.create([
+    {name: "Gulmira", location: "Gulmira, Afghanistan", character_id: Character.find_by(name: "Tony Stark").id, movie_id: Movie.find_by(name: "Iron Man").id},
+    {name: "Los Angeles", location: "Los Angeles, CA, USA", character_id: Character.find_by(name: "Tony Stark").id, movie_id: Movie.find_by(name: "Iron Man").id},
+    {name: "Rio de Janiero", location: "Rio de Janiero, Brazil", character_id: Character.find_by(name: "Bruce Banner").id, movie_id: Movie.find_by(name: "The Incredible Hulk").id},
+    {name: "Culver University", location: "Culver, VA, USA", character_id: Character.find_by(name: "Bruce Banner").id, movie_id: Movie.find_by(name: "The Incredible Hulk").id},
+    {name: "Harlem", location: "Harlem, NY, USA", character_id: Character.find_by(name: "Bruce Banner").id, movie_id: Movie.find_by(name: "The Incredible Hulk").id},
+    {name: "Monte Carlo", location: "Monte Carlo, Monaco", character_id: Character.find_by(name: "Tony Stark").id, movie_id: Movie.find_by(name: "Iron Man 2").id},
+    {name: "Queens", location: "Queens, NY, USA", character_id: Character.find_by(name: "Tony Stark").id, movie_id: Movie.find_by(name: "Iron Man 2").id},
+    {name: "New Mexico", location: "Puente Antiguo, NM, USA", character_id: Character.find_by(name: "Thor Odinson").id, movie_id: Movie.find_by(name: "Thor").id},
+    {name: "Azzano", location: "Azzano, Italy", character_id: Character.find_by(name: "Steve Rogers").id, movie_id: Movie.find_by(name: "Captain America: The First Avenger").id},
+    {name: "Helicarrier", location: "Aboard the Helicarrier", character_id: Character.find_by(name: "Thor Odinson").id, movie_id: Movie.find_by(name: "The Avengers").id},
+    {name: "New York", location: "New York, NY, USA", character_id: Character.find_by(name: "Steve Rogers").id, movie_id: Movie.find_by(name: "The Avengers").id},
 ])
