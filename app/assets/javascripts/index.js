@@ -21,7 +21,7 @@ function getMovies() {
         let movies = response.map(item => {
             let movie = new Movie(item);
             let movieHtml = movie.movieHTML();
-            $("#json-movies").append(movieHtml);
+            $("#json-movies-table").append(movieHtml);
         });
     });
 }
@@ -44,10 +44,9 @@ Movie.prototype.movieHTML = function (){
     `)
 }
 
-///////////////////////////////////////////////
+///////////////////////Battles
 
 function battlesListener() {
-    console.log("battlesListener fires");
     $("#battles-index").on("click", function(e) {
         e.preventDefault();
         getBattles();
@@ -55,18 +54,16 @@ function battlesListener() {
 }
 
 function getBattles() {
-    console.log("getBattles fires");
     $.ajax({
         type: "GET",
         url: "/battles",
         dataType: "json"
     })
     .done(function(response) {
-        console.log("response=", response);
         let battles = response.map(item => {
             let battle = new Battle(item);
             let battleHtml = battle.battleHTML();
-            $("#json-battles").append(battleHtml);
+            $("#json-battles-table").append(battleHtml);
         });
     });
 }
@@ -90,29 +87,29 @@ Battle.prototype.battleHTML = function (){
     `)
 }
 
-//////////////////////////////////////
-
-function getCharacters() {
-    $.ajax({
-        type: "GET",
-        url: "/characters",
-        dataType: "json"
-    })
-    .done(function(response) {
-        console.log("response=", response);
-        let characters = response.map(item => {
-            let character = new Character(item);
-            let characterHtml = character.characterHtml();
-            $("#json-characters").append(characterHtml);
-        });
-    });
-}
+///////////////////Characters
 
 function charactersListener() {
     $("#characters-index").on("click", function(e) {
         e.preventDefault();
         getCharacters();
     })
+}
+
+function getCharacters() {
+    console.log("getCharacters fires");
+    $.ajax({
+        type: "GET",
+        url: "/characters",
+        dataType: "json"
+    })
+    .done(function(response) {
+        let characters = response.map(item => {
+            let character = new Character(item);
+            let characterHtml = character.characterHTML();
+            $("#json-characters-table").append(characterHtml);
+        });
+    });
 }
 
 class Character {
@@ -126,8 +123,8 @@ class Character {
 Character.prototype.characterHTML = function (){
     return (`
         <tr>
-            <td><a href="/movies/${this.id}">${this.name}<a></td>
-            <td><a href="/movies/${this.id}">${this.alias}<a></td>
+            <td><a href="/characters/${this.id}">${this.name}<a></td>
+            <td><a href="/characters/${this.id}">${this.alias}<a></td>
         <tr>    
     `)
 }
