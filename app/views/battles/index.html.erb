@@ -1,19 +1,39 @@
 
-
 <h1>List of all Battles</h1>
 <br>
+<button type="button" id="battles-index">Battles JSON</button>
+<div id="json-battles">
+<table>
+<thead>
+  <tr>
+  <th>Name</th>
+  <th>Location</th>
+  <th>Movie Name</th>
+  <th>Year</th>
+  <th>Character Name</th>
+  <th colspan="5"></th>
+  </tr>
+</thead>
+<tbody>
+  <tr> 
+    <td id="name"><td>
+    <td id="year"><td>
+  </tr>
+</tbody>
+</table>
+</div>
+
 <table>
   <thead>
     <tr>
       <th>Name</th>
       <th>Location</th>
-      <th>Movie</th>
+      <th>Movie Name</th>
       <th>Year</th>
-      <th>Characters</th>
+      <th>Character Name</th>
       <th colspan="5"></th>
     </tr>
   </thead>
-
   <tbody>
     <% @battles.each do |battle| %>
       <tr>
