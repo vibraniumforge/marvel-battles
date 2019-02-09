@@ -60,7 +60,6 @@ function getBattles() {
         dataType: "json"
     })
     .done(function(response) {
-        console.log(response[0])
         let battles = response.map(item => {
             let battle = new Battle(item);
             let battleHtml = battle.battleHTML();
@@ -69,10 +68,14 @@ function getBattles() {
     });
 }
 
+
+function battleRenamer(battle){
+    return `The battle of ${battle}`;
+}
+
 class Battle {
     constructor(obj) {
-        console.log("obj=", obj)
-        this.name = obj.name;
+        this.name = battleRenamer(obj.name);
         this.location = obj.location;
         this.character_id = obj.character_id;
         this.movie_id = obj.movie_id;
@@ -101,7 +104,6 @@ function charactersListener() {
 }
 
 function getCharacters() {
-    console.log("getCharacters fires");
     $.ajax({
         type: "GET",
         url: "/characters",
