@@ -8,6 +8,10 @@ There is an account signup with name and password. Facebook may also be used to 
 
 A user logs in to the service and can then create characters, movies, and battles to categorize and save. I have seeded a lot of information, so make sure to rails db:seed before use.
 
-To install, fork and clone the repo. Run "bundle" in the command line. Run "rake db:migrate" and "rake db:seed".
+To install, fork and clone the repo. Run "bundle" in the command line. Run "rake db:migrate" and "rake db:seed". Then, run "rails s" to start the server.
+
+Create a new user account, and enjoy!
+
+To contribute please use the attached gitHub repo and functionality.
 
 This project has been licensed under the MIT open source license.
