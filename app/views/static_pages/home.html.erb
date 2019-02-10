@@ -6,7 +6,7 @@
 <%= image_tag("posters/The_Incredible_Hulk_poster.jpg", :alt => "The Incredible Hulk poster") %>
 <%= image_tag("posters/Thor_poster.jpg", :alt => "Thor poster") %>
 <%= image_tag("posters/Captain_America_The_First_Avenger_poster.jpg", :alt => "Captain America poster") %>
-<%= image_tag("posters/Avengers_poster.jpg", :alt => "Avengers poster") %>
+<%= image_tag("posters/Avengers_poster.jpg", :alt => "The Avengers poster") %>
 <br>
 <% if current_user %>
     <h1>User Name: <%= current_user.name %></h1><br>
@@ -17,6 +17,6 @@
     <%= link_to "Logout", session_path, method:"delete", class:"navbar-brand"%>
 <% else %>  
     <%= link_to "Sign Up", new_user_path, class:"navbar-brand"%><br>
-    <%= link_to "Log In", signin_path, class:"navbar-brand" %><br>
+    <%= link_to "Sign In", signin_path, class:"navbar-brand" %><br>
     <%= link_to('Log in with Facebook!', '/auth/facebook') %>
 <% end %>
