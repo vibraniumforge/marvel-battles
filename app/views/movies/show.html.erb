@@ -2,7 +2,9 @@
 
 <p>Name: <%= @movie.name %></p>
 <p>Year: <%= @movie.year %></p>
-<%= image_tag(@movie.movie_directory) %><br>
+<% if @movie.poster.present? %>
+    <%= image_tag(@movie.movie_directory) %><br>
+<% end %>    
 <%= link_to "Edit Movie", edit_movie_path(@movie) %>
 <br>
 <%= link_to "Delete Movie", @movie, method: :delete, data: { confirm: "Are you sure you want to delete this?" } %>
