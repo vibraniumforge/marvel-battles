@@ -20,9 +20,12 @@
         <strong><%= link_to "Logout", session_path, method:"delete", class:"navbar-brand"%></strong>
       <% else %>  
         <%= link_to "Sign Up", new_user_path, class:"navbar-brand"%>
-        <%= link_to "Log In", signin_path, class:"navbar-brand" %>
+        <%= link_to "Sign In", signin_path, class:"navbar-brand" %>
         <a href='/auth/facebook'>Login with Facebook</a>
       <% end %>
+      <%= link_to "Battles", battles_path %>
+      <%= link_to "Characters", characters_path %>
+      <%= link_to "Movies", movies_path %>
     </div>
     <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav">

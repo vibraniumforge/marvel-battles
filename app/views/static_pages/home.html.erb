@@ -6,14 +6,7 @@
 <%= image_tag("posters/The_Incredible_Hulk_poster.jpg", :alt => "The Incredible Hulk poster") %>
 <%= image_tag("posters/Thor_poster.jpg", :alt => "Thor poster") %>
 <%= image_tag("posters/Captain_America_The_First_Avenger_poster.jpg", :alt => "Captain America poster") %>
-<%= image_tag("posters/Avengers_poster.jpg", :alt => "Avengers poster") %>
-<br>
-<%= image_tag("posters/Captain_America_The_Winter_Soldier.jpg", :alt => "Captain America The Winter Soldier poster") %>
-<%= image_tag("posters/Guardians_of_the_Galaxy_poster.jpg", :alt => "Guardians of the Galaxy poster") %>
-<%= image_tag("posters/Ant-Man_poster.jpg", :alt => "Ant-Man poster") %>
-<%= image_tag("posters/Spider-Man_Homecoming_poster.jpg", :alt => "Spider-Man Homecoming poster") %>
-<%= image_tag("posters/Black_Panther_poster.jpg", :alt => "Black Panther poster") %>
-
+<%= image_tag("posters/Avengers_poster.jpg", :alt => "The Avengers poster") %>
 <br>
 <% if current_user %>
     <h1>User Name: <%= current_user.name %></h1><br>
@@ -24,6 +17,6 @@
     <%= link_to "Logout", session_path, method:"delete", class:"navbar-brand"%>
 <% else %>  
     <%= link_to "Sign Up", new_user_path, class:"navbar-brand"%><br>
-    <%= link_to "Log In", signin_path, class:"navbar-brand" %><br>
+    <%= link_to "Sign In", signin_path, class:"navbar-brand" %><br>
     <%= link_to('Log in with Facebook!', '/auth/facebook') %>
 <% end %>
