@@ -21,7 +21,10 @@ class CharactersController < ApplicationController
   def create
     @character=Character.create(character_params)
     if @character.save
-      redirect_to characters_path
+      respond_to do |format|
+        format.html {redirect_to characters_path}
+        format.json {render json: @character}
+      end
     else
       render :new
     end

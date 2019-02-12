@@ -68,7 +68,6 @@ function getBattles() {
     });
 }
 
-
 function battleRenamer(battle){
     return `The battle of ${battle}`;
 }
@@ -114,6 +113,7 @@ function getCharacters() {
             let character = new Character(item);
             let characterHtml = character.characterHTML();
             $("#json-characters-table").append(characterHtml);
+
         });
     });
 }
@@ -123,6 +123,16 @@ class Character {
         this.name = obj.name;
         this.alias = obj.alias;
         this.id = obj.id
+    }
+    static newCharacterForm(){
+        return (
+            <div>
+                <form>           
+                    <input type="text" id="name"/>
+                    <input type="text" id="alias"/>  
+                </form>
+            </div>
+        )
     }
 }
 
@@ -134,3 +144,22 @@ Character.prototype.characterHTML = function (){
         <tr>    
     `)
 }
+    function getNewCharacterForm() {
+        $("#js-form").on("click", function (event) {
+            event.preventDefault();
+            let form = Character.newCharacterForm();
+            $("insert form place here").append(form);
+        })
+    }
+
+  function postToCharacters() {
+    $('form').submit(function(event) {
+      event.preventDefault();
+      var values = $(this).serialize();
+      var posting = $.post('/characters', values);
+      $("#json-characters-table").html('');
+      getCharacters();
+      
+    });
+  }
+
