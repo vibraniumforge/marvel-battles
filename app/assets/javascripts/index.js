@@ -5,10 +5,11 @@ $(function() {
   });
   
   function moviesListener() {
-    $("#movies-index").on("click", function(e) {
+    $("#movies-index-btn").on("click", function(e) {
       e.preventDefault();
       getMovies();
     });
+    getNewMovieForm();
   }
   
   function getMovies() {
@@ -32,6 +33,39 @@ $(function() {
       this.poster = obj.poster;
       this.id = obj.id;
     }
+    static newMovieForm() {
+      return `
+        <div>
+            <form id="new-movie-form-js">           
+                <input type="text" id="movie-name" placeholder="name"/>
+                <input type="number" id="movie-year" placeholder ="year"/><br>  
+                <button type="button" id="js-movie-submit-btn">Submit</button>
+            </form>
+        </div>
+  `;
+    }
+  }
+
+  function getNewMovieForm() {
+    $("#js-new-movie-form-div").append(Movie.newMovieForm());
+    $("#js-movie-submit-btn").on("click",function(event) {
+      event.preventDefault();
+      var values = {
+        movie: {
+          name: $("#movie-name").val(),
+          year: $("#movie-year").val()
+        }
+      }
+      $.post("/movies", values);
+      $("#json-movies-table").html("");
+      getMovies();
+      clearMovieInputs();
+    });
+  }
+
+  function clearMovieInputs() {
+    $("#movie-name").val("");
+    $("#movie-year").val("");
   }
   
   Movie.prototype.movieHTML = function() {
@@ -46,10 +80,11 @@ $(function() {
   ///////////////////////Battles
   
   function battlesListener() {
-    $("#battles-index").on("click", function(e) {
+    $("#battles-index-btn").on("click", function(e) {
       e.preventDefault();
       getBattles();
     });
+    getNewBattleForm();
   }
   
   function getBattles() {
@@ -75,6 +110,52 @@ $(function() {
       this.characterName = obj.character.name;
       this.id = obj.id;
     }
+    static newBattleForm() {
+      return `
+      <div>
+            <form id="new-battle-form-js">           
+                <input type="text" id="battle-name" placeholder="name"/>
+                <input type="text" id="battle-location" placeholder="location"/><br>
+                <button type="button" id="js-battle-submit-btn">Submit</button>
+            </form>
+        </div>
+      `
+    }
+  }
+
+  // <input type="text" id="movie-name" placeholder="movie name"/>
+  //               <input type="number" id="movie-year" placeholder="movie year"/><br>
+  //               <input type="text" id="character-name" placeholder="character name"/>  
+
+  function getNewBattleForm() {
+    $("#js-new-battle-form-div").append(Battle.newBattleForm());
+    $("#js-battle-submit-btn").on("click",function(event) {
+      event.preventDefault();
+      var values = {
+        battle: {
+          name: $("#battle-name").val(),
+          location: $("#battle-location").val(),
+          // movieName: $("#movie-name").val(),
+          // movieYear: $("#movie-year").val(),
+          // characterName: $("#character-name").val()
+        }
+      }
+      console.log("values=", values);
+      console.log("values=", values.battle);
+      console.log("values=", values.battle.name);
+      $.post("/battles", values);
+      $("#json-battles-table").html("");
+      getBattles();
+      clearBattleInputs();
+    });
+  }
+
+  function clearBattleInputs() {
+    $("#battle-name").val("");
+    $("#battle-location").val("");
+    $("#movie-name").val("");
+    $("#movie-year").val(""),
+    $("#character-name").val("")
   }
   
   Battle.prototype.battleHTML = function() {
@@ -92,8 +173,9 @@ $(function() {
   ///////////////////Characters
   
   function charactersListener() {
-    $("#characters-index").on("click", function(event) {
+    $("#characters-index-btn").on("click", function(event) {
       event.preventDefault();
+      getCharacters();
     });
     getNewCharacterForm();
   }
@@ -122,14 +204,35 @@ $(function() {
     static newCharacterForm() {
       return `
                   <div>
-                      <form>           
-                          <input type="text" id="name" placeholder="name"/>
-                          <input type="text" id="alias" placeholder ="alias"/>  
-                          <button type="button" id="js-btn">Submit</button>
+                      <form id="new-character-form-js">           
+                          <input type="text" id="character-name" placeholder="name"/>
+                          <input type="text" id="alias" placeholder ="character-alias"/><br>  
+                          <input type="text" id="character-superpower" placeholder ="superpower"/> 
+                          <button type="button" id="js-character-submit-btn">Submit</button>
                       </form>
                   </div>
               `;
     }
+  }
+
+  function getNewCharacterForm() {
+    $("#js-character-form-div").append(Character.newCharacterForm());
+    $("#js-character-submit-btn").on("click",function(event) {
+      event.preventDefault();
+      var values = {
+        character: {
+          name: $("#character-name").val(),
+          alias: $("#character-alias").val(),
+          superpowers:{
+            name: $("#character-superpower").val()
+          }
+        }
+      }
+      $.post("/characters", values);
+      $("#json-characters-table").html("");
+      getCharacters();
+      clearInputs();
+    });
   }
   
   function superpowersFx(objSuperpowers) {
@@ -138,6 +241,12 @@ $(function() {
       superpowers.push(" " + os.name);
     });
     return superpowers;
+  }
+
+  function clearInputs() {
+    $("#character-name").val("");
+    $("#character-alias").val("");
+    $("#character-superpower").val("");
   }
   
   Character.prototype.characterHTML = function() {
@@ -150,24 +259,4 @@ $(function() {
           `;
   };
   
-  function getNewCharacterForm() {
-    $("#js-form").append(Character.newCharacterForm());
-    $("#js-btn").on("click", function(event) {
-      event.preventDefault();
-      let form = Character.newCharacterForm();
-      postToCharacters(form);
-    });
-  }
-  
-  function postToCharacters() {
-    // $("form").submit(function(event) {
-    $("#js-form").submit(function(event) {
-      console.log("fx fires");
-      event.preventDefault();
-      var values = $(this).serialize();
-      $.post("/characters", values);
-      $("#json-characters-table").html("");
-      getCharacters();
-    });
-  }
   
