@@ -1,12 +1,2 @@
 <h1>New Battle</h1>
 <%= render 'form' %>
-
-<script type="text/javascript" charset="utf-8">
-  $(function () {
-    $('form').submit(function(event) {
-      event.preventDefault();
-      var values = $(this).serialize();
-      $.post('/battles', values);
-    });
-  });
-</script>
