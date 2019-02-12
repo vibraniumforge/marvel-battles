@@ -20,7 +20,10 @@ class MoviesController < ApplicationController
   def create
     @movie=Movie.create(movie_params)
     if @movie.save
-      redirect_to movies_path
+      respond_to do |format|
+        format.html {redirect_to movies_path}
+        format.json {render json: @movie}
+      end
     else
       render :new
     end

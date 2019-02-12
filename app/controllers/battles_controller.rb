@@ -20,6 +20,10 @@ class BattlesController < ApplicationController
   def create
     @battle=Battle.create(battle_params)
     if @battle.save
+      respond_to do |format|
+        format.html {redirect_to battles_path}
+        format.json {render json: @battle}
+      end
       redirect_to battles_path
     else
       render :new
