@@ -68,19 +68,14 @@ function getBattles() {
     });
 }
 
-function battleRenamer(battle){
-    return `The battle of ${battle}`;
-}
-
 class Battle {
     constructor(obj) {
-        this.name = battleRenamer(obj.name);
+        this.name = obj.name;
         this.location = obj.location;
-        this.character_id = obj.character_id;
-        this.movie_id = obj.movie_id;
+        this.movieName = obj.movie.name
+        this.movieYear = obj.movie.year
+        this.characterName = obj.character.name
         this.id = obj.id;
-        // this.movie.name = obj.movie.name
-        // this.movie.year = obj.movie.year
     }
 }
 
@@ -89,6 +84,9 @@ Battle.prototype.battleHTML = function (){
         <tr>
             <td><a href="/battles/${this.id}">${this.name}<a></td>
             <td><a href="/battles/${this.id}">${this.location}<a></td>
+            <td><a href="/battles/${this.id}">${this.movieName}<a></td>
+            <td><a href="/battles/${this.id}">${this.movieYear}<a></td>
+            <td><a href="/battles/${this.id}">${this.characterName}<a></td>
         <tr>    
     `)
 }
@@ -138,9 +136,9 @@ class Character {
 }
 
 function superpowersFx(objSuperpowers) {
-    let superpowers =[];
+    let superpowers = [];
     objSuperpowers.map(os=> {
-        superpowers.push(os.name);
+        superpowers.push(' '+os.name);
     })
     return superpowers;
 }
