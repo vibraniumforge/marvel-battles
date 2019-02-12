@@ -116,6 +116,9 @@ class Battle {
           <form id="new-battle-form-js">           
               <input type="text" id="battle-name" placeholder="name"/>
               <input type="text" id="battle-location" placeholder="location"/><br>
+              <input type="text" id="movie-name" placeholder="movie name"/>
+              <input type="number" id="movie-year" placeholder="movie year"/><br>
+              <input type="text" id="character-name" placeholder="character name"/>
               <button type="button" id="js-battle-submit-btn">Submit</button>
           </form>
       </div>
@@ -123,9 +126,7 @@ class Battle {
   }
 }
 
-// <input type="text" id="movie-name" placeholder="movie name"/>
-//               <input type="number" id="movie-year" placeholder="movie year"/><br>
-//               <input type="text" id="character-name" placeholder="character name"/>
+
 
 function getNewBattleForm() {
   $("#js-new-battle-form-div").append(Battle.newBattleForm());
@@ -134,10 +135,14 @@ function getNewBattleForm() {
     var battleValues = {
       battle: {
         name: $("#battle-name").val(),
-        location: $("#battle-location").val()
-        // movieName: $("#movie-name").val(),
-        // movieYear: $("#movie-year").val(),
-        // characterName: $("#character-name").val()
+        location: $("#battle-location").val(),
+        movie: {
+          name: $("#movie-name").val(),
+          year:  $("#movie-year").val(),
+        },
+        character: {
+          name: $("#character-name").val()
+        }
       }
     };
     console.log("battleValues=", battleValues);
