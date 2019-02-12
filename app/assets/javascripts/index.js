@@ -96,8 +96,8 @@ Battle.prototype.battleHTML = function (){
 ///////////////////Characters
 
 function charactersListener() {
-    $("#characters-index").on("click", function(e) {
-        e.preventDefault();
+    $("#characters-index").on("click", function(event) {
+        event.preventDefault();
         getCharacters();
     })
 }
@@ -113,7 +113,6 @@ function getCharacters() {
             let character = new Character(item);
             let characterHtml = character.characterHTML();
             $("#json-characters-table").append(characterHtml);
-
         });
     });
 }
@@ -122,18 +121,28 @@ class Character {
     constructor(obj) {
         this.name = obj.name;
         this.alias = obj.alias;
+        this.superpowers = superpowersFx(obj.superpowers)
         this.id = obj.id
     }
     static newCharacterForm(){
-        return (
+        return (`
             <div>
                 <form>           
-                    <input type="text" id="name"/>
-                    <input type="text" id="alias"/>  
+                    <input type="text" id="name" placeholder="name"/>
+                    <input type="text" id="alias" placeholder ="alias"/>  
+                    <button type="button" id="js-btn">Submit</button>
                 </form>
             </div>
-        )
+        `)
     }
+}
+
+function superpowersFx(objSuperpowers) {
+    let superpowers =[];
+    objSuperpowers.map(os=> {
+        superpowers.push(os.name);
+    })
+    return superpowers;
 }
 
 Character.prototype.characterHTML = function (){
@@ -141,25 +150,26 @@ Character.prototype.characterHTML = function (){
         <tr>
             <td><a href="/characters/${this.id}">${this.name}<a></td>
             <td><a href="/characters/${this.id}">${this.alias}<a></td>
+            <td><a href="/characters/${this.id}">${this.superpowers}<a></td>
         <tr>    
     `)
 }
-    function getNewCharacterForm() {
-        $("#js-form").on("click", function (event) {
-            event.preventDefault();
-            let form = Character.newCharacterForm();
-            $("insert form place here").append(form);
-        })
-    }
 
-  function postToCharacters() {
+function getNewCharacterForm() {
+    $("#js-btn").on("click", function (event) {
+        event.preventDefault();
+        let form = Character.newCharacterForm();
+        $("#js-form").append(form);
+    })
+}
+
+function postToCharacters() {
     $('form').submit(function(event) {
       event.preventDefault();
       var values = $(this).serialize();
       var posting = $.post('/characters', values);
       $("#json-characters-table").html('');
       getCharacters();
-      
     });
   }
 
