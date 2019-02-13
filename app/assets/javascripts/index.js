@@ -9,7 +9,35 @@ function moviesListener() {
     e.preventDefault();
     getMovies();
   });
+  $("#movies-index-sorted-btn").on("click", function(e) {
+    e.preventDefault();
+    getSortedMovies();
+  });
+  $("#movies-show-btn").on("click", function(e) {
+    e.preventDefault();
+    getMovie();
+  });
   getNewMovieForm();
+}
+
+function getSortedMovies() {
+  $.ajax({
+    type: "GET",
+    url: "/movies",
+    dataType: "json"
+  }).done(function(response) {
+    response.sort(function(a,b) {
+      if (a.year !== b.year) {
+        return a.year-b.year;
+      }
+      return a.name.toUpperCase()>b.name.toUpperCase()
+    });
+    let movies = response.map(item => {
+      let movie = new Movie(item);
+      let movieHtml = movie.movieHTML();
+      $("#json-movies-table").append(movieHtml);
+    });
+  });
 }
 
 function getMovies() {
@@ -19,10 +47,24 @@ function getMovies() {
     dataType: "json"
   }).done(function(response) {
     let movies = response.map(item => {
+      console.log(response)
       let movie = new Movie(item);
       let movieHtml = movie.movieHTML();
       $("#json-movies-table").append(movieHtml);
     });
+  });
+}
+
+function getMovie() {
+  $.ajax({
+    type: "GET",
+    url: "/movies/1",
+    dataType: "json",
+  }).done(function(response) {
+    let movie = new Movie(response);
+    let movieHtml= movie.movieHTML();
+    console.log("movieHtml=", movieHtml)
+    $("#movie-js-show").append(movieHtml);
   });
 }
 
@@ -56,10 +98,11 @@ function getNewMovieForm() {
         year: $("#movie-year").val()
       }
     };
-    $.post("/movies", movieValues);
-    $("#json-movies-table").html("");
-    getMovies();
-    clearMovieInputs();
+    $.post("/movies", movieValues, null, "json").done(function() {
+      $("#json-movies-table").html("");
+      getMovies();
+      clearMovieInputs();
+    })
   });
 }
 
