@@ -13,7 +13,7 @@ function moviesListener() {
     e.preventDefault();
     getSortedMovies();
   });
-  $("#movies-show-btn").on("click", function(e) {
+  $("#movie-show-one-btn").on("click", function(e) {
     e.preventDefault();
     getMovie();
   });
@@ -40,7 +40,7 @@ function getSortedMovies() {
       });
     })
     .fail(function() {
-      console.log("getSortedMovies failed");
+      console.log("getSortedMovies to GET/movies failed");
     });
 }
 
@@ -58,7 +58,7 @@ function getMovies() {
       });
     })
     .fail(function() {
-      console.log("getMovies failed");
+      console.log("getMovies to GET /moviesfailed");
     });
 }
 
@@ -75,7 +75,7 @@ function getMovie() {
       $("#movie-js-show").append(movieHtml);
     })
     .fail(function() {
-      console.log("getMovie failed");
+      console.log("getMovie GET /movies/:id failed");
     });
 }
 
@@ -122,7 +122,7 @@ function getNewMovieForm() {
         clearMovieInputs();
       })
       .fail(function() {
-        console.log("getMovie failed");
+        console.log("getNewMovieForm POST /movies failed");
       });
   });
 }
@@ -165,7 +165,7 @@ function getBattles() {
       });
     })
     .fail(function() {
-      console.log("get /battles failed");
+      console.log("getBattles GET /battles failed");
     });
 }
 
@@ -177,6 +177,7 @@ class Battle {
     this.movieYear = obj.movie.year;
     this.characterName = obj.character.name;
     this.id = obj.id;
+    console.log(obj)
   }
   static newBattleForm() {
     return `
@@ -225,7 +226,7 @@ function getNewBattleForm() {
         clearBattleInputs();
       })
       .fail(function() {
-        console.log("post /battles failed");
+        console.log("getNewBattleForm POST /battles failed");
       });
   });
 }
@@ -234,7 +235,8 @@ function clearBattleInputs() {
   $("#battle-name").val("");
   $("#battle-location").val("");
   $("#movie-name").val("");
-  $("#movie-year").val(""), $("#character-name").val("");
+  $("#movie-year").val("");
+  $("#character-name").val("");
 }
 
 Battle.prototype.battleHTML = function() {
@@ -273,7 +275,7 @@ function getCharacters() {
       });
     })
     .fail(function() {
-      console.log("get /characters failed");
+      console.log("getCharacters GET /characters failed");
     });
 }
 
@@ -326,7 +328,7 @@ function getNewCharacterForm() {
         clearInputs();
       })
       .fail(function() {
-        console.log("getMovie failed");
+        console.log("getNewCharacterForm POST /characters failed");
       });
   });
 }
