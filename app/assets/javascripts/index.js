@@ -25,21 +25,23 @@ function getSortedMovies() {
     type: "GET",
     url: "/movies",
     dataType: "json"
-  }).done(function(response) {
-    response.sort(function(a,b) {
-      if (a.year !== b.year) {
-        return a.year-b.year;
-      }
-      return a.name.toUpperCase()>b.name.toUpperCase()
+  })
+    .done(function(response) {
+      response.sort(function(a, b) {
+        if (a.year !== b.year) {
+          return a.year - b.year;
+        }
+        return a.name.toUpperCase() > b.name.toUpperCase();
+      });
+      let movies = response.map(item => {
+        let movie = new Movie(item);
+        let movieHtml = movie.movieHTML();
+        $("#json-movies-table").append(movieHtml);
+      });
+    })
+    .fail(function() {
+      console.log("getSortedMovies failed");
     });
-    let movies = response.map(item => {
-      let movie = new Movie(item);
-      let movieHtml = movie.movieHTML();
-      $("#json-movies-table").append(movieHtml);
-    });
-  }).fail(function(){
-    console.log("getSortedMovies failed");
-  });
 }
 
 function getMovies() {
@@ -47,15 +49,17 @@ function getMovies() {
     type: "GET",
     url: "/movies",
     dataType: "json"
-  }).done(function(response) {
-    let movies = response.map(item => {
-      let movie = new Movie(item);
-      let movieHtml = movie.movieHTML();
-      $("#json-movies-table").append(movieHtml);
+  })
+    .done(function(response) {
+      let movies = response.map(item => {
+        let movie = new Movie(item);
+        let movieHtml = movie.movieHTML();
+        $("#json-movies-table").append(movieHtml);
+      });
+    })
+    .fail(function() {
+      console.log("getMovies failed");
     });
-  }).fail(function(){
-    console.log("getMovies failed");
-  });
 }
 
 function getMovie() {
@@ -64,13 +68,15 @@ function getMovie() {
     url: "/movies/1",
     dataType: "json",
     cache: false
-  }).done(function(response) {
-    let movie = new Movie(response);
-    let movieHtml= movie.movieHTML();
-    $("#movie-js-show").append(movieHtml);
-  }).fail(function(){
-    console.log("getMovie failed");
-  });
+  })
+    .done(function(response) {
+      let movie = new Movie(response);
+      let movieHtml = movie.movieHTML();
+      $("#movie-js-show").append(movieHtml);
+    })
+    .fail(function() {
+      console.log("getMovie failed");
+    });
 }
 
 class Movie {
@@ -103,13 +109,21 @@ function getNewMovieForm() {
         year: $("#movie-year").val()
       }
     };
-    $.post("/movies", movieValues, null, "json").done(function() {
-      $("#json-movies-table").html("");
-      getMovies();
-      clearMovieInputs();
-    }).fail(function(){
-      console.log("getMovie failed");
-    });
+    // $.post("/movies", movieValues, null, "json").done(function() {
+    $.ajax({
+      type: "POST",
+      url: "/movies",
+      dataType: "json",
+      data: movieValues
+    })
+      .done(function() {
+        $("#json-movies-table").html("");
+        getMovies();
+        clearMovieInputs();
+      })
+      .fail(function() {
+        console.log("getMovie failed");
+      });
   });
 }
 
@@ -142,15 +156,17 @@ function getBattles() {
     type: "GET",
     url: "/battles",
     dataType: "json"
-  }).done(function(response) {
-    let battles = response.map(item => {
-      let battle = new Battle(item);
-      let battleHtml = battle.battleHTML();
-      $("#json-battles-table").append(battleHtml);
+  })
+    .done(function(response) {
+      let battles = response.map(item => {
+        let battle = new Battle(item);
+        let battleHtml = battle.battleHTML();
+        $("#json-battles-table").append(battleHtml);
+      });
+    })
+    .fail(function() {
+      console.log("get /battles failed");
     });
-  }).fail(function() {
-    console.log("get /battles failed")
-  });
 }
 
 class Battle {
@@ -178,8 +194,6 @@ class Battle {
   }
 }
 
-
-
 function getNewBattleForm() {
   $("#js-new-battle-form-div").append(Battle.newBattleForm());
   $("#js-battle-submit-btn").on("click", function(e) {
@@ -190,7 +204,7 @@ function getNewBattleForm() {
         location: $("#battle-location").val(),
         movie: {
           name: $("#movie-name").val(),
-          year:  $("#movie-year").val(),
+          year: $("#movie-year").val()
         },
         character: {
           name: $("#character-name").val()
@@ -198,13 +212,21 @@ function getNewBattleForm() {
       }
     };
     console.log("battleValues=", battleValues);
-    $.post("/battles", battleValues).done(function() {
-      $("#json-battles-table").html("");
-      getBattles();
-      clearBattleInputs();
-    }).fail(function() {
-      console.log("post /battles failed")
-    });
+    // $.post("/battles", battleValues).done(function() {
+    $.ajax({
+      type: "POST",
+      url: "/battles",
+      dataType: "json",
+      data: battleValues
+    })
+      .done(function() {
+        $("#json-battles-table").html("");
+        getBattles();
+        clearBattleInputs();
+      })
+      .fail(function() {
+        console.log("post /battles failed");
+      });
   });
 }
 
@@ -242,15 +264,17 @@ function getCharacters() {
     type: "GET",
     url: "/characters",
     dataType: "json"
-  }).done(function(response) {
-    let characters = response.map(item => {
-      let character = new Character(item);
-      let characterHtml = character.characterHTML();
-      $("#json-characters-table").append(characterHtml);
+  })
+    .done(function(response) {
+      let characters = response.map(item => {
+        let character = new Character(item);
+        let characterHtml = character.characterHTML();
+        $("#json-characters-table").append(characterHtml);
+      });
+    })
+    .fail(function() {
+      console.log("get /characters failed");
     });
-  }).fail(function() {
-    console.log("get /characters failed")
-  });
 }
 
 class Character {
@@ -282,18 +306,28 @@ function getNewCharacterForm() {
       character: {
         name: $("#character-name").val(),
         alias: $("#character-alias").val(),
-        superpowers_attributes: [{
-          name: $("#character-superpower").val()
-        }]
+        superpowers_attributes: [
+          {
+            name: $("#character-superpower").val()
+          }
+        ]
       }
     };
-    $.post("/characters", characterValues).done(function() {
-      $("#json-characters-table").html("");
-    getCharacters();
-    clearInputs();
-    }).fail(function(){
-      console.log("getMovie failed");
-    });
+    // $.post("/characters", characterValues).done(function() {
+    $.ajax({
+      type: "POST",
+      url: "/characters",
+      dataType: "json",
+      data: characterValues
+    })
+      .done(function() {
+        $("#json-characters-table").html("");
+        getCharacters();
+        clearInputs();
+      })
+      .fail(function() {
+        console.log("getMovie failed");
+      });
   });
 }
 
