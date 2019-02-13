@@ -37,6 +37,8 @@ function getSortedMovies() {
       let movieHtml = movie.movieHTML();
       $("#json-movies-table").append(movieHtml);
     });
+  }).fail(function(){
+    console.log("getSortedMovies failed");
   });
 }
 
@@ -47,11 +49,12 @@ function getMovies() {
     dataType: "json"
   }).done(function(response) {
     let movies = response.map(item => {
-      console.log(response)
       let movie = new Movie(item);
       let movieHtml = movie.movieHTML();
       $("#json-movies-table").append(movieHtml);
     });
+  }).fail(function(){
+    console.log("getMovies failed");
   });
 }
 
@@ -60,11 +63,13 @@ function getMovie() {
     type: "GET",
     url: "/movies/1",
     dataType: "json",
+    cache: false
   }).done(function(response) {
     let movie = new Movie(response);
     let movieHtml= movie.movieHTML();
-    console.log("movieHtml=", movieHtml)
     $("#movie-js-show").append(movieHtml);
+  }).fail(function(){
+    console.log("getMovie failed");
   });
 }
 
@@ -90,8 +95,8 @@ class Movie {
 
 function getNewMovieForm() {
   $("#js-new-movie-form-div").append(Movie.newMovieForm());
-  $("#js-movie-submit-btn").on("click", function(event) {
-    event.preventDefault();
+  $("#js-movie-submit-btn").on("click", function(e) {
+    e.preventDefault();
     var movieValues = {
       movie: {
         name: $("#movie-name").val(),
@@ -102,7 +107,9 @@ function getNewMovieForm() {
       $("#json-movies-table").html("");
       getMovies();
       clearMovieInputs();
-    })
+    }).fail(function(){
+      console.log("getMovie failed");
+    });
   });
 }
 
@@ -141,6 +148,8 @@ function getBattles() {
       let battleHtml = battle.battleHTML();
       $("#json-battles-table").append(battleHtml);
     });
+  }).fail(function() {
+    console.log("get /battles failed")
   });
 }
 
@@ -173,8 +182,8 @@ class Battle {
 
 function getNewBattleForm() {
   $("#js-new-battle-form-div").append(Battle.newBattleForm());
-  $("#js-battle-submit-btn").on("click", function(event) {
-    event.preventDefault();
+  $("#js-battle-submit-btn").on("click", function(e) {
+    e.preventDefault();
     var battleValues = {
       battle: {
         name: $("#battle-name").val(),
@@ -189,10 +198,13 @@ function getNewBattleForm() {
       }
     };
     console.log("battleValues=", battleValues);
-    $.post("/battles", battleValues);
-    $("#json-battles-table").html("");
-    getBattles();
-    clearBattleInputs();
+    $.post("/battles", battleValues).done(function() {
+      $("#json-battles-table").html("");
+      getBattles();
+      clearBattleInputs();
+    }).fail(function() {
+      console.log("post /battles failed")
+    });
   });
 }
 
@@ -218,8 +230,8 @@ Battle.prototype.battleHTML = function() {
 ///////////////////Characters
 
 function charactersListener() {
-  $("#characters-index-btn").on("click", function(event) {
-    event.preventDefault();
+  $("#characters-index-btn").on("click", function(e) {
+    e.preventDefault();
     getCharacters();
   });
   getNewCharacterForm();
@@ -236,6 +248,8 @@ function getCharacters() {
       let characterHtml = character.characterHTML();
       $("#json-characters-table").append(characterHtml);
     });
+  }).fail(function() {
+    console.log("get /characters failed")
   });
 }
 
@@ -262,8 +276,8 @@ class Character {
 
 function getNewCharacterForm() {
   $("#js-character-form-div").append(Character.newCharacterForm());
-  $("#js-character-submit-btn").on("click", function(event) {
-    event.preventDefault();
+  $("#js-character-submit-btn").on("click", function(e) {
+    e.preventDefault();
     var characterValues = {
       character: {
         name: $("#character-name").val(),
@@ -273,10 +287,13 @@ function getNewCharacterForm() {
         }]
       }
     };
-    $.post("/characters", characterValues);
-    $("#json-characters-table").html("");
+    $.post("/characters", characterValues).done(function() {
+      $("#json-characters-table").html("");
     getCharacters();
     clearInputs();
+    }).fail(function(){
+      console.log("getMovie failed");
+    });
   });
 }
 
