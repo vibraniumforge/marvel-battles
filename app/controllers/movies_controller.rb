@@ -11,6 +11,11 @@ class MoviesController < ApplicationController
   end
 
   def show
+    find_movie
+    respond_to do |format|
+      format.json {render json: @movie}
+      format.html {render :show}
+    end
   end
 
   def new
