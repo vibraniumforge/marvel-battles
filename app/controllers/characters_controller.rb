@@ -29,7 +29,6 @@ class CharactersController < ApplicationController
   def update
     @character.superpowers.destroy_all
     @character.update(character_params)
-
     if @character.save
       redirect_to character_path(@character)
     else
