@@ -169,6 +169,54 @@ function getBattles() {
     });
 }
 
+function getMovieNames() {
+  $.ajax({
+    type: "GET",
+    url: "/movies",
+    dataType: "json"
+  }).done(function(response) {
+    let moviesList = [];
+    moviesList.push(
+      `<option value="" disabled selected>
+        Movie Name
+      </option>`
+    );
+    $.each(response, function(i, value) {
+      moviesList.push(
+        `<option id="${response.id}" value="
+        ${response[i].name}"
+        >
+        ${response[i].name}
+        </option>`
+      );
+    });
+    $("#movie-name").html(moviesList.join(""));
+    return moviesList;
+  });
+}
+
+function getCharNames() {
+  $.ajax({
+    type: "GET",
+    url: "/characters",
+    dataType: "json"
+  }).done(function(response) {
+    let charactersList = [];
+    charactersList.push(
+      `<option value="" disabled selected>Character Name</option>`
+    );
+    $.each(response, function(i, value) {
+      charactersList.push(
+        `<option id="${response.id}" value="${response[i].name}">${
+          response[i].name
+        }</option>`
+      );
+    });
+    $("#character-name").html(charactersList.join(""));
+    return charactersList;
+  });
+}
+
 class Battle {
   constructor(obj) {
     this.name = obj.name;
@@ -177,17 +225,26 @@ class Battle {
     this.movieYear = obj.movie.year;
     this.characterName = obj.character.name;
     this.id = obj.id;
-    console.log(obj)
+    this.movie_id = obj.movie_id;
+    this.character_id = obj.character_id;
   }
   static newBattleForm() {
+    let movies = getMovieNames();
+    let characters = getCharNames();
     return `
     <div>
           <form id="new-battle-form-js">           
               <input type="text" id="battle-name" placeholder="name"/>
               <input type="text" id="battle-location" placeholder="location"/><br>
-              <input type="text" id="movie-name" placeholder="movie name"/>
-              <input type="number" id="movie-year" placeholder="movie year"/><br>
-              <input type="text" id="character-name" placeholder="character name"/>
+              <select id="movie-name">
+              <option value="" disabled selected>Movie Name</option>
+                ${movies}
+              </select>
+              <select id="character-name">
+              <option value="" disabled selected>Character Name</option>
+                ${characters}
+              </select>
+              <br>
               <button type="button" id="js-battle-submit-btn">Submit</button>
           </form>
       </div>
@@ -204,11 +261,10 @@ function getNewBattleForm() {
         name: $("#battle-name").val(),
         location: $("#battle-location").val(),
         movie: {
-          name: $("#movie-name").val(),
-          year: $("#movie-year").val()
-        },
-        character: {
-          name: $("#character-name").val()
+          name: $("#movie-id").val(),
+          character: {
+            name: $("#character-id").val()
+          }
         }
       }
     };
@@ -225,8 +281,9 @@ function getNewBattleForm() {
         getBattles();
         clearBattleInputs();
       })
-      .fail(function() {
+      .fail(function(xhr, textStatus, errorThrown) {
         console.log("getNewBattleForm POST /battles failed");
+        console.log("xhr.responseText=", xhr.responseText);
       });
   });
 }
