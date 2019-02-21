@@ -24,7 +24,6 @@ class BattlesController < ApplicationController
         format.html {redirect_to battles_path}
         format.json {render json: @battle}
       end
-      redirect_to battles_path
     else
       render :new
     end
@@ -51,7 +50,6 @@ class BattlesController < ApplicationController
 
     def battle_params
       params.require(:battle).permit(:name, :location, :character_id, :movie_id)
-      # params.require(:battle).permit(:name, :location, :character_ids[], :movie_id)
     end
 
     def find_battle
