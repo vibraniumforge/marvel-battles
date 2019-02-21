@@ -365,7 +365,6 @@ function getNewCharacterForm() {
         ]
       }
     };
-
     $.ajax({
       type: "POST",
       url: "/characters",
@@ -388,7 +387,7 @@ function superpowersFx(objSuperpowers) {
   objSuperpowers.map(os => {
     superpowersAr.push(" " + os.name);
   });
-  return superpowersAr;
+  return superpowersAr.join(", ");
 }
 
 function clearInputs() {
