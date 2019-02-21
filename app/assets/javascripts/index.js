@@ -36,7 +36,7 @@ function getSortedMovies() {
       let movies = response.map(item => {
         let movie = new Movie(item);
         let movieHtml = movie.movieHTML();
-        $("#json-movies-table").append(movieHtml);
+        $("#json-movies-table-sorted").append(movieHtml);
       });
     })
     .fail(function() {
@@ -72,7 +72,7 @@ function getMovie() {
     .done(function(response) {
       let movie = new Movie(response);
       let movieHtml = movie.movieHTML();
-      $("#movie-js-show").append(movieHtml);
+      $("#json-movies-table-first").append(movieHtml);
     })
     .fail(function() {
       console.log("getMovie GET /movies/:id failed");
@@ -109,7 +109,7 @@ function getNewMovieForm() {
         year: $("#movie-year").val()
       }
     };
-    // $.post("/movies", movieValues, null, "json").done(function() {
+
     $.ajax({
       type: "POST",
       url: "/movies",
@@ -199,7 +199,6 @@ function getCharacterNames() {
     url: "/characters",
     dataType: "json"
   }).done(function(response) {
-    // console.log("response=", response);
     let charactersList = [];
     charactersList.push(
       `<option value="" disabled selected>Character Name</option>`
@@ -263,9 +262,7 @@ function getNewBattleForm() {
         character_id: $("#character-name").val()
       }
     };
-    console.log("battleValues=", battleValues.battle);
-
-    // $.post("/battles", battleValues).done(function() {
+    // console.log("battleValues=", battleValues.battle);
     $.ajax({
       type: "POST",
       url: "/battles",
@@ -279,7 +276,7 @@ function getNewBattleForm() {
       })
       .fail(function(xhr, textStatus, errorThrown) {
         console.log("getNewBattleForm POST /battles failed");
-        console.log("xhr.responseText=", xhr.responseText);
+        // console.log("xhr.responseText=", xhr.responseText);
       });
   });
 }
@@ -368,7 +365,7 @@ function getNewCharacterForm() {
         ]
       }
     };
-    // $.post("/characters", characterValues).done(function() {
+
     $.ajax({
       type: "POST",
       url: "/characters",
