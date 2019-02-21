@@ -183,11 +183,9 @@ function getMovieNames() {
     );
     $.each(response, function(i, value) {
       moviesList.push(
-        `<option id="${response.id}" value="
-        ${response[i].name}"
-        >
-        ${response[i].name}
-        </option>`
+        `<option id="${response.id}" value="${response[i].id}">${
+          response[i].name
+        }</option>`
       );
     });
     $("#movie-name").html(moviesList.join(""));
@@ -195,19 +193,20 @@ function getMovieNames() {
   });
 }
 
-function getCharNames() {
+function getCharacterNames() {
   $.ajax({
     type: "GET",
     url: "/characters",
     dataType: "json"
   }).done(function(response) {
+    // console.log("response=", response);
     let charactersList = [];
     charactersList.push(
       `<option value="" disabled selected>Character Name</option>`
     );
     $.each(response, function(i, value) {
       charactersList.push(
-        `<option id="${response.id}" value="${response[i].name}">${
+        `<option id="${response[i].id}" value="${response[i].id}">${
           response[i].name
         }</option>`
       );
@@ -230,7 +229,7 @@ class Battle {
   }
   static newBattleForm() {
     let movies = getMovieNames();
-    let characters = getCharNames();
+    let characters = getCharacterNames();
     return `
     <div>
           <form id="new-battle-form-js">           
@@ -260,15 +259,12 @@ function getNewBattleForm() {
       battle: {
         name: $("#battle-name").val(),
         location: $("#battle-location").val(),
-        movie: {
-          name: $("#movie-id").val(),
-          character: {
-            name: $("#character-id").val()
-          }
-        }
+        movie_id: $("#movie-name").val(),
+        character_id: $("#character-name").val()
       }
     };
-    console.log("battleValues=", battleValues);
+    console.log("battleValues=", battleValues.battle);
+
     // $.post("/battles", battleValues).done(function() {
     $.ajax({
       type: "POST",
